@@ -2,26 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* LLSA Brand — Light Mode */
+    --background: 45 23% 96%;        /* #F8F7F4 warm off-white */
+    --foreground: 240 28% 14%;       /* #1A1A2E deep navy text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 28% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 28% 14%;
+
+    --primary: 217 60% 26%;          /* #1B3A6B deep navy */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 153 40% 30%;        /* #2E6B4F forest green */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 42 18% 89%;             /* #E8E5DE warm light grey */
+    --muted-foreground: 0 0% 42%;    /* #6B6B6B mid grey */
+
+    --accent: 39 54% 51%;            /* #C6973F warm gold */
+    --accent-foreground: 0 0% 11%;   /* #1B1B1B */
+
+    --destructive: 6 63% 46%;        /* #C0392B */
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 63% 42%;          /* #27AE60 */
+    --success-foreground: 0 0% 100%;
+
+    --border: 37 13% 81%;            /* #D4CFC7 */
+    --input: 37 13% 81%;
+    --ring: 217 60% 26%;
+
+    --radius: 0.5rem;
   }
+
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Anchor targets clear the sticky navbar (72px main nav) */
+  :target,
+  section[id] {
+    scroll-margin-top: 80px;
+  }
+  /* WCAG 2.4.7 — visible keyboard focus ring on all interactive elements */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+  /* Suppress UA focus ring only for mouse/touch (elements that supply their own hover styles) */
+  :focus:not(:focus-visible) {
+    outline: none;
   }
 }
