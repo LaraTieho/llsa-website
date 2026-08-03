@@ -11,10 +11,11 @@ interface Act {
   number: string
   year: number
   adminBody: string
-  status: "In Force" | "Amended" | "Subsidiary"
+  status: "In Force" | "Amended" | "Subsidiary" | "Repealed"
   statusNote?: string
   purpose: string
   downloadHref: string
+  sourceNote?: string
 }
 
 interface Provision {
@@ -34,7 +35,7 @@ const ACTS: Act[] = [
     title: "Land Survey Act",
     number: "No. 14 of 1980",
     year: 1980,
-    adminBody: "Land Administration Authority",
+    adminBody: "Chief Surveyor / Commissioner of Lands",
     status: "In Force",
     statusNote: "as amended",
     purpose:
@@ -45,7 +46,7 @@ const ACTS: Act[] = [
     title: "Land Survey Regulations",
     number: "1982",
     year: 1982,
-    adminBody: "Land Administration Authority",
+    adminBody: "Chief Surveyor / Commissioner of Lands",
     status: "In Force",
     purpose:
       "Subsidiary legislation made under the Land Survey Act prescribing accuracy standards, diagram formats, field note requirements, and the procedural rules governing lodgement of survey records with the Chief Surveyor.",
@@ -55,11 +56,22 @@ const ACTS: Act[] = [
     title: "Land Survey (Amendment) Act",
     number: "No. 15 of 2012",
     year: 2012,
-    adminBody: "Land Administration Authority",
+    adminBody: "[Superseded]",
+    status: "Repealed",
+    purpose:
+      "Originally transferred the Chief Surveyor's functions to the Land Administration Authority. Repealed in its entirety by the Land Survey (Amendment) Act 2019 (Act No. 2 of 2019). Not currently in force.",
+    downloadHref: "/docs/land-survey-amendment-act-2012.pdf", // TODO: [LLSA CONTENT] — upload actual PDF to public/docs/ and verify path
+  },
+  {
+    title: "Land Survey (Amendment) Act",
+    number: "No. 2 of 2019",
+    year: 2019,
+    adminBody: "Chief Surveyor / Commissioner of Lands",
     status: "In Force",
     purpose:
-      "Amends the 1980 Act to transfer the Chief Surveyor's functions from the Public Service to the Land Administration Authority, and formally assigns the cadastre administration mandate to the LAA as a statutory function.",
-    downloadHref: "/docs/land-survey-amendment-act-2012.pdf", // TODO: [LLSA CONTENT] — upload actual PDF to public/docs/ and verify path
+      "Repeals the Land Survey (Amendment) Act 2012 in its entirety. Restores the office of Chief Surveyor to the Public Service under the Commissioner of Lands. Establishes the Land Surveyors' Board (chaired by the Chief Surveyor, with representatives from the LAA, licensed surveyors, and the ministries of Local Government and Education). Meetings quarterly; 3-year terms, maximum two consecutive.",
+    downloadHref: "#",
+    sourceNote: "Gazette Vol. 64, No. 30, 18 April 2019",
   },
   {
     title: "Land Administration Authority Act",
@@ -87,23 +99,27 @@ const ACTS: Act[] = [
 const PROVISIONS: Provision[] = [
   {
     heading: "Licensing requirements under the Land Survey Act",
-    body: "Section 6 of the Land Survey Act No. 14 of 1980 prohibits any person from practising as a land surveyor unless duly licensed by the Chief Surveyor. Applicants must satisfy prescribed academic qualifications, complete a period of supervised practical training, and pass qualifying examinations. LLSA administers the professional examination on behalf of its members, and membership is a prerequisite for licensing consideration.",
+    body: "The Land Survey Act No. 14 of 1980 requires any person wishing to practise as a land surveyor to hold a licence issued under the Act. The Chief Surveyor administers the licensing regime. Unlicensed surveying is an offence.",
   },
   {
-    heading: "Chief Surveyor's functions and the LAA (post-2012 amendment)",
-    body: "Prior to 2012 the Chief Surveyor was a public servant within the Ministry of Local Government. The Land Survey (Amendment) Act 2012 transferred these functions to the Land Administration Authority, making the position an LAA executive role. The Chief Surveyor retains statutory responsibilities including approving survey diagrams, maintaining the cadastre, and licensing surveyors.",
+    heading: "Chief Surveyor: Public Service and Commissioner of Lands (post-2019)",
+    body: "The Land Survey (Amendment) Act 2019 (Act No. 2 of 2019) restores the Chief Surveyor to the Public Service, responsible to the Commissioner of Lands. The 2012 Act that had transferred the Chief Surveyor to the LAA is fully repealed. The Chief Surveyor's duties include chairing the Land Surveyors' Board, establishing spatial data infrastructure, and maintaining the national geodetic control network.",
   },
   {
-    heading: "Cadastre administration mandate (Amendment Act 2012, s.3(g))",
-    body: "Section 3(g) of the Amendment Act formally vests the LAA with the mandate to administer, maintain, and develop the national cadastre. This encompasses the cadastral index, survey diagram archives, trigonometrical beacon network, and geodetic control infrastructure. All LLSA members conducting cadastral surveys must lodge diagrams with the LAA in compliance with this mandate.",
+    heading: "Land Surveyors' Board: composition and mandate (2019 Act)",
+    body: "The 2019 Amendment Act establishes the Land Surveyors' Board. The Board is chaired by the Chief Surveyor and includes: a representative of the Land Administration Authority; licensed surveyors; a representative of the Ministry of Local Government and Chieftainship Affairs; and a representative of the Ministry of Education. Members serve 3-year terms with a maximum of two consecutive terms. The Board meets quarterly.",
   },
   {
-    heading: "Duties of licensed surveyors and non-liability of the Authority (s.14(2))",
-    body: "Section 14(2) of the Land Survey Act clarifies that approval of a diagram by the Chief Surveyor does not relieve the surveyor of professional responsibility for the accuracy of measurements and computations contained therein. The licensed surveyor remains solely liable for the correctness of the survey. LLSA's Code of Professional Conduct reinforces this statutory duty.",
+    heading: "National cadastre: LAA's administration role",
+    body: "The Land Administration Authority Act 2010 (Act No. 9 of 2010) establishes the LAA as the body responsible for administering the national land cadastre. The LAA registers surveyed parcels, maintains cadastral records, processes subdivisions and consolidations, and provides cadastre information to the public. Cadastral surveys must be certified by a licensed surveyor before lodgement with the LAA.",
   },
   {
-    heading: "Land allocation and lease framework under the Land Act 2010",
-    body: "The Land Act 2010 requires that any allocation of land for lease purposes be supported by a cadastral survey diagram approved under the Land Survey Act. Section 33 et seq. prescribes the lease registration process, requiring certified survey documentation as a precondition to title registration by the LAA — creating a direct operational link between licensed survey practice and the land rights adjudication process.",
+    heading: "Non-liability of the Government and public officers (s.14(2))",
+    body: "Section 14(2) of the Land Survey Act (as restored by the 2019 Amendment Act) provides that the Government or a public officer shall not be liable for any act or omission arising from the performance of survey functions. Note: the 2012 Act had substituted 'the Authority' (LAA) in this provision; the 2019 Act reinstates the original 'Government or public officer' formulation, consistent with the Chief Surveyor's restored public service status.",
+  },
+  {
+    heading: "Land tenure and lease framework under the Land Act 2010",
+    body: "The Land Act 2010 (Act No. 8 of 2010) vests all land in Lesotho in the Basotho Nation. Land is allocated by the Commissioner of Lands (urban areas) and land allocation authorities (rural areas). Leases are the primary form of title. All lease transactions require cadastral survey data certified by a licensed surveyor.",
   },
 ]
 
@@ -135,6 +151,7 @@ const STATUS_STYLES: Record<Act["status"], string> = {
   "In Force": "bg-secondary/10 text-secondary border-secondary/20",
   "Amended": "bg-accent/15 text-accent border-accent/25",
   "Subsidiary": "bg-muted text-foreground/55 border-border",
+  "Repealed": "bg-[#E8E5DE] text-[#4A4A4A] border-[#4A4A4A]/20",
 }
 
 // ── ActCard ────────────────────────────────────────────────────
@@ -174,7 +191,7 @@ function ActCard({ act }: { act: Act }) {
       <p className="text-sm text-foreground/65 leading-relaxed">{act.purpose}</p>
 
       {/* Download */}
-      <div className="pt-1">
+      <div className="pt-1 flex flex-col gap-1.5">
         <a
           href={act.downloadHref}
           className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/75 transition-colors group"
@@ -182,6 +199,9 @@ function ActCard({ act }: { act: Act }) {
           <Download className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
           Download PDF ↓
         </a>
+        {act.sourceNote && (
+          <p className="text-xs text-foreground/40">{act.sourceNote}</p>
+        )}
       </div>
     </motion.div>
   )
@@ -340,6 +360,8 @@ export function LegislationContent() {
               These documents are reproduced for professional reference. The authoritative versions
               are those published in the{" "}
               <em className="not-italic font-medium text-white/90">Lesotho Government Gazette</em>.
+              {" "}The Land Survey (Amendment) Act 2019 (Act No. 2 of 2019) is the current
+              amendment to the Land Survey Act — the 2012 Amendment Act has been fully repealed.
               {" "}Sources:{" "}
               <span className="text-accent font-medium">LesLII (www.lesotholii.org)</span>
               {" "}and the{" "}

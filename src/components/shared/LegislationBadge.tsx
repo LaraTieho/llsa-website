@@ -5,6 +5,7 @@ export type LegislationBadgeVariant =
   | "amendment"
   | "subsidiary"
   | "in-force"
+  | "repealed"
 
 interface LegislationBadgeProps {
   variant: LegislationBadgeVariant
@@ -31,6 +32,10 @@ const VARIANT_MAP: Record<
   "in-force": {
     defaultLabel: "In Force",
     className: "bg-green-100 text-green-800",
+  },
+  repealed: {
+    defaultLabel: "Repealed",
+    className: "bg-[#E8E5DE] text-[#4A4A4A]",
   },
 }
 

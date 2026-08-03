@@ -7,7 +7,7 @@ import { fadeInUp, staggerContainer } from "@/lib/animations"
 const OBJECTIVES = [
   "Maintain and promote the standards of the land surveying profession",
   "Protect the interests of licensed land surveyors operating in Lesotho",
-  "Liaise with the Land Administration Authority on matters affecting survey practice",
+  "Liaise with the Chief Surveyor's office, the Land Surveyors' Board, and the Land Administration Authority on matters affecting survey practice",
   "Facilitate continuing professional development for members",
   "Promote public awareness of the role of professional surveyors in land administration",
   "Represent Lesotho's surveying profession in regional and international bodies",

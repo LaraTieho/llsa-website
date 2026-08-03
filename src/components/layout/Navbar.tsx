@@ -79,8 +79,8 @@ export function Navbar() {
       <div className="hidden md:block bg-primary text-primary-foreground py-1.5 text-xs">
         <div className="container flex items-center justify-between gap-4">
           <p className="hidden md:block opacity-70 truncate">
-            Regulated under the Land Survey Act No. 14 of 1980 | Land Administration Authority Act
-            No. 9 of 2010
+            Regulated under the Land Survey Act No. 14 of 1980 (as amended 2019) | Land
+            Administration Authority Act No. 9 of 2010
           </p>
           <div className="flex items-center gap-5 ml-auto md:ml-0 shrink-0">
             <a

@@ -35,9 +35,15 @@ const TIMELINE = [
   },
   {
     year: "2012",
-    event: "Land Survey (Amendment) Act",
+    event: "Land Survey (Amendment) Act (repealed)",
     detail:
-      "Chief Surveyor functions transferred from the Public Service to the LAA; cadastre administration mandate formalised.",
+      "Chief Surveyor functions transferred from the Public Service to the LAA; cadastre administration mandate formalised. Fully repealed by the 2019 Amendment Act.",
+  },
+  {
+    year: "2019",
+    event: "Land Survey (Amendment) Act No. 2 of 2019",
+    detail:
+      "Repeals the 2012 Amendment Act. Restores the Chief Surveyor to the Public Service under the Commissioner of Lands and establishes the Land Surveyors' Board.",
   },
 ]
 
@@ -80,8 +86,11 @@ export function Governance() {
             className="text-base text-white/70 leading-relaxed"
           >
             LLSA is governed by its Constitution and operates in alignment with the Land Survey
-            Act No. 14 of 1980, the Land Survey Regulations 1982, and the institutional framework
-            established by the Land Administration Authority Act 2010.
+            Act No. 14 of 1980 (as amended by Act No. 2 of 2019), the Land Survey Regulations 1982,
+            the Land Administration Authority Act 2010, and the Land Act 2010. The Chief Surveyor
+            — a public officer responsible to the Commissioner of Lands — chairs the Land
+            Surveyors&apos; Board, which includes representation from the LAA, the Ministry of
+            Local Government and Chieftainship Affairs, and the Ministry of Education.
           </motion.p>
         </motion.div>
 

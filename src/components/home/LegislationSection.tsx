@@ -10,6 +10,7 @@ interface Legislation {
   title: string
   description: string
   badge: string
+  repealed?: boolean
 }
 
 const LEGISLATION: Legislation[] = [
@@ -28,11 +29,19 @@ const LEGISLATION: Legislation[] = [
     badge: "Subsidiary Legislation",
   },
   {
-    id: "survey-amendment",
+    id: "survey-amendment-2012",
     title: "Land Survey (Amendment) Act, 2012 (Act No. 15 of 2012)",
     description:
-      "Transfers the Chief Surveyor's functions from the Public Service to the Land Administration Authority. Introduces the land cadastre administration mandate including cadastre registration, updates, and dispute resolution.",
-    badge: "Amendment",
+      "Originally transferred the Chief Surveyor's functions to the Land Administration Authority. Fully repealed by the Land Survey (Amendment) Act 2019 (Act No. 2 of 2019) — no longer in force.",
+    badge: "Repealed",
+    repealed: true,
+  },
+  {
+    id: "survey-amendment-2019",
+    title: "Land Survey (Amendment) Act, 2019 (Act No. 2 of 2019)",
+    description:
+      "Repeals the 2012 Amendment Act in its entirety. Restores the Chief Surveyor to the Public Service under the Commissioner of Lands. Establishes the Land Surveyors' Board (chaired by the Chief Surveyor) and affirms the spatial data infrastructure mandate.",
+    badge: "Current Amendment",
   },
   {
     id: "laa-act",
@@ -91,7 +100,8 @@ export function LegislationSection() {
           >
             Professional land surveying in Lesotho is governed by a suite of legislation that
             establishes the licensing regime, cadastral standards, and the institutional mandate
-            of the Land Administration Authority. LLSA members practise within this framework.
+            of the Chief Surveyor and Land Administration Authority. LLSA members practise within
+            this framework.
           </motion.p>
         </motion.div>
 
@@ -142,7 +152,7 @@ export function LegislationSection() {
 
 // ── LegislationCard ───────────────────────────────────────────
 function LegislationCard({ item }: { item: Legislation }) {
-  const { title, description, badge } = item
+  const { title, description, badge, repealed } = item
   return (
     <motion.div
       variants={fadeInUp}
@@ -153,12 +163,18 @@ function LegislationCard({ item }: { item: Legislation }) {
         "lg:w-auto lg:shrink",
         // card chrome
         "flex flex-col gap-4 p-7 rounded-xl",
-        "border border-white/15 border-l-4 border-l-accent",
+        "border border-white/15 border-l-4",
+        repealed ? "border-l-white/30" : "border-l-accent",
         "bg-white/[0.07]",
       ].join(" ")}
     >
       {/* Badge */}
-      <span className="self-start px-3 py-1 rounded-full bg-accent/20 text-accent text-[11px] font-semibold uppercase tracking-wider">
+      <span
+        className={[
+          "self-start px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider",
+          repealed ? "bg-[#E8E5DE] text-[#4A4A4A]" : "bg-accent/20 text-accent",
+        ].join(" ")}
+      >
         {badge}
       </span>
 

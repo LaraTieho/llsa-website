@@ -53,7 +53,7 @@ const UPCOMING: UpcomingEvent[] = [
     hours: 8,
   },
   {
-    title: "Cadastral Law Update: Land Survey Amendment Act in Practice",
+    title: "Cadastral Law Update: Land Survey (Amendment) Act 2019 in Practice",
     type: "Webinar",
     location: "Online",
     date: "September 2026",

@@ -357,7 +357,7 @@ const SERVICES: Service[] = [
     id: "cadastral",
     Icon: MapPin,
     title: "Cadastral Surveys",
-    legalBasis: "Land Survey Act, 1980 — Section 14; Land Survey Regulations, 1982",
+    legalBasis: "Land Survey Act, 1980 (as amended by Act No. 2 of 2019) — Section 14; Land Survey Regulations, 1982",
     paragraphs: [
       "A cadastral survey defines the legal boundaries of land parcels — the physical and legal limits that underpin ownership, title registration, and all land transactions. In Lesotho, cadastral surveys are governed by Section 14 of the Land Survey Act, 1980, which restricts cadastral survey work exclusively to licensed Professional Land Surveyors.",
       "The survey process involves field measurement of existing boundary features, establishment of survey beacons, preparation of general plans and diagram drawings to prescribed standards, and lodgement of the approved survey records with the Land Administration Authority for integration into the national cadastre.",
@@ -515,11 +515,13 @@ export function ServiceBlocks() {
           className="max-w-3xl pt-16 pb-4"
         >
           <motion.p variants={fadeInUp} className="text-lg text-foreground/70 leading-relaxed">
-            Under the Land Survey Act No. 14 of 1980 and the Land Survey (Amendment) Act 2012,
-            a professional land surveyor is the only person authorised to carry out cadastral
-            surveys in Lesotho. The scope of the profession extends across the full lifecycle of
-            land — from initial allocation and boundary definition to infrastructure development,
-            spatial data management, and dispute resolution.
+            Under the Land Survey Act No. 14 of 1980 (as amended by the Land Survey (Amendment)
+            Act 2019, Act No. 2 of 2019), a professional land surveyor is the only person
+            authorised to carry out cadastral surveys in Lesotho. The Chief Surveyor, a public
+            officer responsible to the Commissioner of Lands, oversees the profession and chairs
+            the Land Surveyors&apos; Board. The scope of the profession extends across the full
+            lifecycle of land — from initial allocation and boundary definition to infrastructure
+            development, spatial data management, and dispute resolution.
           </motion.p>
         </motion.div>
 

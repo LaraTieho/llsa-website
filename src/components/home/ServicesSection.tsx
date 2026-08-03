@@ -91,9 +91,11 @@ export function ServicesSection() {
             className="text-base text-foreground/65 leading-relaxed"
           >
             Professional land surveyors in Lesotho operate under the Land Survey Act No. 14 of
-            1980, with functions now administered through the Land Administration Authority.
-            Their work underpins every land transaction, infrastructure project, and spatial
-            planning decision in the country.
+            1980 (as amended by Act No. 2 of 2019). The Chief Surveyor — a public officer
+            responsible to the Commissioner of Lands — oversees the profession and chairs the
+            Land Surveyors&apos; Board. The Land Administration Authority administers the
+            national cadastre. Their work underpins every land transaction, infrastructure
+            project, and spatial planning decision in the country.
           </motion.p>
         </motion.div>
 
