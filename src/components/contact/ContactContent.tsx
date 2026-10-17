@@ -62,9 +62,9 @@ const COMMITTEE = [
   { role: "Treasurer", name: "Molefi Bokaako", email: "geomaticsinstitute.ls@gmail.com" },
 ]
 
-// TODO: [LLSA CONTENT] — replace "#" hrefs with actual LinkedIn, Facebook, and X/Twitter profile URLs
+// TODO: [GIL CONTENT] — replace "#" hrefs with the Facebook and X/Twitter profile URLs once they exist
 const SOCIAL = [
-  { label: "LinkedIn", Icon: LinkedInIcon, href: "#" },
+  { label: "LinkedIn", Icon: LinkedInIcon, href: "https://www.linkedin.com/company/geomatics-institute-of-lesotho/" },
   { label: "Facebook", Icon: FacebookIcon, href: "#" },
   { label: "X (Twitter)", Icon: XIcon, href: "#" },
 ]
@@ -229,6 +229,7 @@ export function ContactContent() {
                       key={label}
                       href={href}
                       aria-label={label}
+                      {...(href !== "#" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                       className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card text-foreground/40 hover:border-accent/40 hover:text-accent hover:bg-accent/5 transition-all"
                     >
                       <Icon className="h-4 w-4" />

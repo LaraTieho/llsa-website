@@ -114,7 +114,7 @@ const jsonLd = {
     areaServed: "LS",
     availableLanguage: ["English", "Sesotho"],
   },
-  sameAs: [], // TODO: [LLSA CONTENT] — add actual social media profile URLs (LinkedIn, Facebook, X/Twitter)
+  sameAs: ["https://www.linkedin.com/company/geomatics-institute-of-lesotho/"], // TODO: [GIL CONTENT] — add Facebook and X/Twitter profile URLs once they exist
 }
 
 export default function RootLayout({

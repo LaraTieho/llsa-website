@@ -38,9 +38,9 @@ function XIcon({ className }: { className?: string }) {
   )
 }
 
-// TODO: [LLSA CONTENT] — replace "#" hrefs with actual LLSA LinkedIn, Facebook, and X/Twitter profile URLs
+// TODO: [GIL CONTENT] — replace "#" hrefs with the Facebook and X/Twitter profile URLs once they exist
 const socialLinks = [
-  { Icon: LinkedInIcon, href: "#", label: "LinkedIn" },
+  { Icon: LinkedInIcon, href: "https://www.linkedin.com/company/geomatics-institute-of-lesotho/", label: "LinkedIn" },
   { Icon: FacebookIcon, href: "#", label: "Facebook" },
   { Icon: XIcon, href: "#", label: "Twitter / X" },
 ]
@@ -67,6 +67,7 @@ export function Footer() {
                     key={label}
                     href={href}
                     aria-label={label}
+                    {...(href !== "#" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="p-2 rounded-md text-primary-foreground/50 hover:text-primary-foreground hover:bg-white/10 transition-colors"
                   >
                     <Icon className="h-5 w-5" />

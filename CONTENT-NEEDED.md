@@ -10,7 +10,7 @@ Open items map to `// TODO: [LLSA CONTENT]` / `// TODO: [GIL CONTENT]` comments 
 | # | Item | File | Notes |
 |---|------|------|-------|
 | 1 | **Production domain** — `BASE_URL` is still `https://www.llsa.org.ls` | `src/app/layout.tsx` | Used in all SEO metadata and JSON-LD; update once the GIL domain is confirmed |
-| 4 | **Social media profile URLs** — LinkedIn, Facebook, X/Twitter | `src/components/contact/ContactContent.tsx`, `src/components/layout/Footer.tsx`, `src/app/layout.tsx` (`sameAs`) | Currently `href="#"` on all platforms |
+| 4 | **Social media profile URLs** — Facebook, X/Twitter (LinkedIn done) | `src/components/contact/ContactContent.tsx`, `src/components/layout/Footer.tsx`, `src/app/layout.tsx` (`sameAs`) | Currently `href="#"` on all platforms |
 | 4a | **Office hours** — confirm "Monday – Friday, 08:00 – 17:00 SAST" for the Chief Surveyor's Office | `src/components/contact/ContactContent.tsx` | Unverified |
 | 11 | **Contact form endpoint** — wire `onSubmit` to a real API (e.g. Resend, Formspree, or a Next.js route handler) | `src/components/contact/ContactContent.tsx` | Currently logs to console and simulates a 1.2 s delay |
 | 18 | **Committee member photos** (optional) | `src/components/about/Governance.tsx` | Cards show initials |
@@ -53,6 +53,7 @@ Open items map to `// TODO: [LLSA CONTENT]` / `// TODO: [GIL CONTENT]` comments 
 | 39 | Street address in JSON-LD | Added |
 | 40 | Email in JSON-LD | geomaticsinstitute.ls@gmail.com, plus telephone |
 | 43 | `/services` page | Exists |
+| 4 (part) | LinkedIn | https://www.linkedin.com/company/geomatics-institute-of-lesotho/ — footer, Contact page and JSON-LD `sameAs` |
 
 ---
 
