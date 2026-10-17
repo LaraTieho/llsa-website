@@ -48,10 +48,10 @@
   body {
     @apply bg-background text-foreground;
   }
-  /* Anchor targets clear the sticky navbar (72px main nav) */
+  /* Anchor targets clear the sticky navbar (80px main nav) */
   :target,
   section[id] {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 88px;
   }
   /* WCAG 2.4.7 — visible keyboard focus ring on all interactive elements */
   :focus-visible {

@@ -7,32 +7,19 @@ interface LogoProps {
   className?: string
 }
 
+// Geomatics Institute of Lesotho — adopted horizontal logo ("Kingdom on the grid").
+// `inverted` switches to the white version for navy/dark backgrounds.
 export function Logo({ inverted, className }: LogoProps) {
   return (
-    <Link href="/" aria-label="Lesotho Land Surveyors Association" className={cn("flex items-center gap-2.5", className)}>
-      {/* TODO: [LLSA CONTENT] — ideally supply a separate white/cream logo variant for dark backgrounds;
-          until then, brightness-0+invert renders a clean white logo on navy/dark backgrounds */}
+    <Link href="/" aria-label="Geomatics Institute of Lesotho — home" className={cn("flex items-center", className)}>
       <Image
-        src="/images/llsa-logo.png"
-        alt="Lesotho Land Surveyors Association"
-        width={176}
-        height={117}
+        src={inverted ? "/images/gil-logo-white.svg" : "/images/gil-logo.svg"}
+        alt="Geomatics Institute of Lesotho"
+        width={1280}
+        height={400}
         priority
-        className={cn(
-          "h-10 w-auto",
-          inverted
-            ? "brightness-0 invert"
-            : "dark:brightness-0 dark:invert",
-        )}
+        className="h-12 w-auto sm:h-14 lg:h-16"
       />
-      <span
-        className={cn(
-          "text-[10px] font-sans tracking-widest uppercase hidden sm:block",
-          inverted ? "text-white/55" : "text-primary/55"
-        )}
-      >
-        Land Surveyors
-      </span>
     </Link>
   )
 }

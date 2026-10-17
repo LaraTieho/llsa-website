@@ -109,10 +109,10 @@ export function Navbar() {
           scrolled ? "shadow-md" : "shadow-none"
         )}
       >
-        <div className="container flex items-center justify-between h-[72px]">
+        <div className="container flex items-center justify-between h-[80px]">
           {/* Logo — scales down on scroll */}
           <motion.div
-            animate={{ scale: scrolled ? 0.79 : 1 }}
+            animate={{ scale: scrolled ? 0.88 : 1 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             style={{ transformOrigin: "left center" }}
           >

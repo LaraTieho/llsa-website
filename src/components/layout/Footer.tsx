@@ -57,7 +57,7 @@ export function Footer() {
 
             {/* Column 1 — Brand */}
             <div className="space-y-5">
-              <Logo inverted />
+              <Logo inverted className="[&_img]:h-[72px]" />
               <p className="text-sm leading-relaxed text-primary-foreground/65 max-w-xs">
                 The professional body advancing land surveying standards in Lesotho.
               </p>
