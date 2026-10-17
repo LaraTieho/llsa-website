@@ -19,9 +19,9 @@ const NEWS: NewsCard[] = [
     id: "laa-circular-2026",
     category: "Announcement",
     date: "29 June 2026",
-    headline: "LLSA Welcomes Amendment to Cadastral Registration Procedures — LAA Circular 2026/3",
+    headline: "GIL Welcomes Amendment to Cadastral Registration Procedures — LAA Circular 2026/3",
     excerpt:
-      "The Land Administration Authority has issued Circular 2026/3 updating the lodgement and approval procedures for cadastral survey diagrams. LLSA members are advised to review the revised requirements before submitting new records.",
+      "The Land Administration Authority has issued Circular 2026/3 updating the lodgement and approval procedures for cadastral survey diagrams. GIL members are advised to review the revised requirements before submitting new records.",
   },
   {
     id: "cpd-drone-workshop",
@@ -29,7 +29,7 @@ const NEWS: NewsCard[] = [
     date: "29 June 2026",
     headline: "CPD Workshop: Drone Survey Methodology for Highland Terrain — Maseru, August 2026",
     excerpt:
-      "LLSA will host a one-day CPD workshop on UAV-based photogrammetric survey techniques tailored to Lesotho's mountainous districts. The session qualifies for 6 CPD hours and is open to all licensed surveyors.",
+      "GIL will host a one-day CPD workshop on UAV-based photogrammetric survey techniques tailored to Lesotho's mountainous districts. The session qualifies for 6 CPD hours and is open to all licensed surveyors.",
   },
   {
     id: "licensing-intake-2026",
@@ -107,7 +107,7 @@ export function NewsSection() {
               variants={fadeInUp}
               className="font-display text-2xl md:text-display-md text-primary"
             >
-              Latest from LLSA
+              Latest from GIL
             </motion.h2>
           </div>
           <motion.div variants={fadeInUp}>

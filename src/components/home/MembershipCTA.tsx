@@ -81,9 +81,9 @@ function MemberCard() {
               <line x1="13" y1="22" x2="27" y2="22" stroke="white" strokeWidth="1.5" opacity="0.55" />
             </svg>
             <div className="leading-tight">
-              <p className="text-white font-display font-bold text-base tracking-wide">LLSA</p>
+              <p className="text-white font-display font-bold text-base tracking-wide">GIL</p>
               <p className="text-white/50 text-[9px] uppercase tracking-widest font-sans">
-                Lesotho Land Surveyors Association
+                Geomatics Institute of Lesotho
               </p>
             </div>
           </div>
@@ -165,9 +165,8 @@ export function MembershipCTA() {
             </motion.h2>
 
             <motion.p variants={fadeInUp} className="text-base text-foreground/70 leading-relaxed">
-              LLSA membership is open to all persons licensed under the Land Survey Act 1980 and
-              the Land Survey Regulations 1982, including Professional Land Surveyors, Survey
-              Technologists, and Survey Technicians operating in Lesotho.
+              GIL membership is open to licensed surveyors, technologists, GIS practitioners,
+              graduates, students and allied professionals across nine membership categories.
             </motion.p>
 
             <motion.ul variants={staggerContainer} className="flex flex-col gap-3">

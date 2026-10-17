@@ -67,7 +67,7 @@ const UPCOMING: UpcomingEvent[] = [
     hours: 16,
   },
   {
-    title: "Annual LLSA Conference 2026",
+    title: "Annual GIL Conference 2026",
     type: "Conference",
     location: "Maseru",
     date: "November 2026",
@@ -90,7 +90,7 @@ const PAST: PastEvent[] = [
     hours: 4,
   },
   {
-    title: "LLSA Annual Conference 2025",
+    title: "GIL Annual Conference 2025",
     type: "Conference",
     date: "November 2025",
     hours: 20,
@@ -199,7 +199,7 @@ export function CPDContent() {
             animate={introInView ? "visible" : "hidden"}
             className="max-w-3xl mx-auto text-center text-base text-foreground/65 leading-relaxed mb-16"
           >
-            LLSA requires all members to maintain competence through structured CPD activities.
+            GIL requires all members to maintain competence through structured CPD activities.
             CPD supports professional growth, keeps members current with legislative changes and
             technical developments, and demonstrates commitment to public interest.
           </motion.p>
@@ -223,11 +223,11 @@ export function CPDContent() {
                 </span>
                 <h3 className="font-display text-base font-bold text-primary">Annual Requirement</h3>
               </div>
-              {/* TODO: [LLSA CONTENT] — replace "[X] hours" with the actual annual CPD requirement set by Council */}
-              <p className="font-display text-3xl font-bold text-accent mb-2">[X] hours</p>
+              <p className="font-display text-3xl font-bold text-accent mb-2">25 hours</p>
               <p className="text-sm text-foreground/55 leading-relaxed">
-                per year (to be confirmed by Council). The CPD cycle runs January to December.
-                Requirements are reviewed at the AGM.
+                per year for Professional Members; 20 for Technologist and GIS Practitioner
+                Members; 10 encouraged for Graduate Members; Students exempt (Constitution Art. 8).
+                Records are due by 31 March.
               </p>
             </motion.div>
 
@@ -270,9 +270,9 @@ export function CPDContent() {
                 <h3 className="font-display text-base font-bold text-primary">Reporting</h3>
               </div>
               <p className="text-sm text-foreground/55 leading-relaxed">
-                Members submit CPD records to the LLSA Secretary annually using the approved
+                Members submit CPD records to the GIL Secretary annually using the approved
                 log template. Non-compliance may result in suspension of membership pending
-                review by the Council.
+                review by the Committee.
               </p>
             </motion.div>
           </motion.div>
@@ -306,7 +306,7 @@ export function CPDContent() {
               className="mt-4 text-base text-foreground/60 leading-relaxed"
             >
               Register early to secure your place. CPD hours are verified and added to
-              your LLSA record upon completion.
+              your GIL record upon completion.
             </motion.p>
           </motion.div>
 
@@ -431,12 +431,12 @@ export function CPDContent() {
                   Regional CPD Recognition
                 </h3>
                 <p className="text-sm text-foreground/65 leading-relaxed">
-                  LLSA CPD may be recognised by regional bodies including the{" "}
+                  GIL CPD may be recognised by regional bodies including the{" "}
                   <strong className="font-semibold text-foreground/80">
                     South African Geomatics Council (SAGC)
                   </strong>{" "}
                   framework, subject to bilateral arrangements currently under discussion between
-                  LLSA and SAGC. Members are advised to confirm individual recognition directly
+                  GIL and SAGC. Members are advised to confirm individual recognition directly
                   with the relevant body before claiming cross-border credits.
                 </p>
               </div>

@@ -53,9 +53,9 @@ export function HeroSection() {
   const statsRef = useRef<HTMLDivElement>(null)
   const statsVisible = useInView(statsRef, { once: true, amount: 0.3 })
 
-  const countYear = useCounter(1980, reducedMotion ? 0 : 1400, statsVisible)
-  const countSurveyors = useCounter(280, reducedMotion ? 0 : 2000, statsVisible)
-  const countPractices = useCounter(48, reducedMotion ? 0 : 1800, statsVisible)
+  const countYear = useCounter(1997, reducedMotion ? 0 : 1400, statsVisible)
+  const countSurveyors = useCounter(2, reducedMotion ? 0 : 2000, statsVisible)
+  const countCandidates = useCounter(11, reducedMotion ? 0 : 1800, statsVisible)
 
   return (
     <section
@@ -90,7 +90,7 @@ export function HeroSection() {
             variants={fadeInUp}
             className="text-base sm:text-xl text-white/75 max-w-xl leading-relaxed"
           >
-            Lesotho Land Surveyors Association — the professional body for licensed
+            Geomatics Institute of Lesotho — the professional body for licensed
             land surveyors, geodesists, and geomatics practitioners in the Kingdom
             of Lesotho.
           </motion.p>
@@ -120,9 +120,9 @@ export function HeroSection() {
             <div className="grid grid-cols-3 sm:flex sm:items-center gap-2 sm:gap-0">
               <StatItem value={countYear} label="Established" />
               <div className="hidden sm:block h-10 w-px bg-accent/50 mx-4 lg:mx-6 shrink-0" />
-              <StatItem value={countSurveyors} label="Licensed Surveyors" suffix="+" />
+              <StatItem value={countSurveyors} label="Licensed Surveyors" />
               <div className="hidden sm:block h-10 w-px bg-accent/50 mx-4 lg:mx-6 shrink-0" />
-              <StatItem value={countPractices} label="Registered Practices" suffix="+" />
+              <StatItem value={countCandidates} label="Candidate Surveyors" />
             </div>
           </motion.div>
         </motion.div>

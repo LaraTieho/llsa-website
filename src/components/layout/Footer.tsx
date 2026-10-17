@@ -100,33 +100,39 @@ export function Footer() {
                 Contact Us
               </h3>
               <ul className="space-y-3 text-sm text-primary-foreground/60">
-                {/* TODO: [LLSA CONTENT] — replace with actual LLSA street address */}
-                <li className="flex items-start gap-2.5">
-                  <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                  <span>
-                    123 Kingsway Avenue
-                    <br />
-                    Maseru 100, Lesotho
-                  </span>
-                </li>
-                {/* TODO: [LLSA CONTENT] — replace with actual LLSA email (note: differs from contact page email — consolidate to one address) */}
                 <li>
                   <a
-                    href="mailto:llsa@lesotho.ls"
+                    href="https://www.google.com/maps/place/Ministry+of+Local+Government/@-29.3142148,27.481942,16z/data=!3m1!4b1!4m6!3m5!1s0x1e8dcb14ffc991bd:0x91b91d8bc59485eb!8m2!3d-29.3142148!4d27.481942!16s%2Fg%2F11gfd8v8h_?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-2.5 hover:text-accent transition-colors"
+                  >
+                    <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
+                    <span>
+                      Chief Surveyor&apos;s Office
+                      <br />
+                      Ministry of Local Government and Chieftainship
+                      <br />
+                      Maseru, Lesotho
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:geomaticsinstitute.ls@gmail.com"
                     className="flex items-center gap-2.5 hover:text-accent transition-colors"
                   >
                     <Mail className="h-4 w-4 shrink-0" />
-                    llsa@lesotho.ls
+                    Geomaticsinstitute.ls@gmail.com
                   </a>
                 </li>
-                {/* TODO: [LLSA CONTENT] — replace with actual phone number (update both href and display text) */}
                 <li>
                   <a
-                    href="tel:+26600000000"
+                    href="tel:+26662349190"
                     className="flex items-center gap-2.5 hover:text-accent transition-colors"
                   >
                     <Phone className="h-4 w-4 shrink-0" />
-                    +266 XXXX XXXX
+                    +266 6234 9190
                   </a>
                 </li>
               </ul>
@@ -137,7 +143,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10">
           <div className="container py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/45">
-            <p>© 2026 Lesotho Land Surveyors Association. All rights reserved.</p>
+            <p>© 2026 Geomatics Institute of Lesotho (formerly Lesotho Land Surveyors Association). All rights reserved.</p>
             <div className="flex items-center gap-5">
               <Link
                 href="/privacy-policy"
@@ -145,9 +151,9 @@ export function Footer() {
               >
                 Privacy Policy
               </Link>
-              {/* TODO: [LLSA CONTENT] — upload LLSA Constitution PDF to public/constitution.pdf */}
               <a
-                href="/constitution.pdf"
+                href="/docs/gil-constitution-draft-2026.pdf"
+                download
                 className="flex items-center gap-1.5 hover:text-primary-foreground/75 transition-colors"
               >
                 <FileText className="h-3 w-3" />

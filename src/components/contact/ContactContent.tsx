@@ -55,11 +55,11 @@ type ContactFormData = z.infer<typeof contactSchema>
 
 // ── Static data ────────────────────────────────────────────────
 
-// TODO: [LLSA CONTENT] — replace placeholder email addresses with actual LLSA council contact emails
-const COUNCIL = [
-  { role: "President", email: "president@llsa.org.ls" },
-  { role: "Secretary", email: "secretary@llsa.org.ls" },
-  { role: "CPD Coordinator", email: "cpd@llsa.org.ls" },
+const COMMITTEE = [
+  { role: "President", name: "Martin Nts'ihlele", email: "geomaticsinstitute.ls@gmail.com" },
+  { role: "Vice-President", name: "Tieho Lara", email: "geomaticsinstitute.ls@gmail.com" },
+  { role: "Secretary", name: "Maphoma Monaheng", email: "geomaticsinstitute.ls@gmail.com" },
+  { role: "Treasurer", name: "Molefi Bokaako", email: "geomaticsinstitute.ls@gmail.com" },
 ]
 
 // TODO: [LLSA CONTENT] — replace "#" hrefs with actual LinkedIn, Facebook, and X/Twitter profile URLs
@@ -167,10 +167,9 @@ export function ContactContent() {
                   <div>
                     <p className="text-sm font-semibold text-foreground/65 mb-1">Office Address</p>
                     <p className="text-sm text-foreground/50 leading-relaxed">
-                      {/* TODO: [LLSA CONTENT] — replace with actual LLSA street address, suburb, and postcode */}
-                      [Placeholder address]<br />
-                      Maseru District<br />
-                      Lesotho
+                      Chief Surveyor&apos;s Office<br />
+                      Ministry of Local Government and Chieftainship<br />
+                      Maseru, Lesotho
                     </p>
                   </div>
                 </motion.div>
@@ -181,12 +180,11 @@ export function ContactContent() {
                   </span>
                   <div>
                     <p className="text-sm font-semibold text-foreground/65 mb-1">Email</p>
-                    {/* TODO: [LLSA CONTENT] — replace with actual LLSA general enquiry email address */}
                     <a
-                      href="mailto:info@llsa.org.ls"
+                      href="mailto:geomaticsinstitute.ls@gmail.com"
                       className="text-sm text-accent font-medium hover:text-accent/70 transition-colors"
                     >
-                      info@llsa.org.ls
+                      Geomaticsinstitute.ls@gmail.com
                     </a>
                   </div>
                 </motion.div>
@@ -197,12 +195,11 @@ export function ContactContent() {
                   </span>
                   <div>
                     <p className="text-sm font-semibold text-foreground/65 mb-1">Phone</p>
-                    {/* TODO: [LLSA CONTENT] — replace with actual LLSA phone number (update both the tel: href and the display text) */}
                     <a
-                      href="tel:+266XXXXXXXX"
+                      href="tel:+26662349190"
                       className="text-sm text-foreground/60 hover:text-primary transition-colors"
                     >
-                      +266 XXXX XXXX
+                      +266 6234 9190
                     </a>
                   </div>
                 </motion.div>
@@ -240,21 +237,20 @@ export function ContactContent() {
                 </div>
               </motion.div>
 
-              {/* Council contacts */}
+              {/* Committee contacts */}
               <motion.div variants={fadeInUp} className="border-t border-border pt-6">
                 <p className="text-xs font-semibold text-foreground/40 uppercase tracking-[0.15em] mb-5">
-                  LLSA Council Contacts
+                  Committee Contacts
                 </p>
                 <div className="flex flex-col gap-4">
-                  {COUNCIL.map(({ role, email }) => (
+                  {COMMITTEE.map(({ role, name, email }) => (
                     <div key={role} className="flex items-start gap-3">
                       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted mt-0.5" aria-hidden="true">
                         <User className="h-4 w-4 text-foreground/40" strokeWidth={1.5} />
                       </span>
                       <div className="flex flex-col gap-0.5">
                         <p className="text-sm font-medium text-foreground/65">{role}</p>
-                        {/* TODO: [LLSA CONTENT] — replace with actual council member name */}
-                      <p className="text-xs text-foreground/35">[Name TBC]</p>
+                        <p className="text-xs text-foreground/50">{name}</p>
                         <a
                           href={`mailto:${email}`}
                           className="text-xs font-mono text-accent hover:text-accent/70 transition-colors"
@@ -295,7 +291,7 @@ export function ContactContent() {
                           Message Sent
                         </h3>
                         <p className="text-sm text-foreground/55 max-w-xs leading-relaxed mx-auto">
-                          Thank you for reaching out. A member of the LLSA team will
+                          Thank you for reaching out. A member of the GIL team will
                           respond within 2–3 working days.
                         </p>
                       </div>
@@ -471,7 +467,7 @@ export function ContactContent() {
         </div>
       </section>
 
-      {/* ── Map placeholder ─────────────────────────────────── */}
+      {/* ── Map ─────────────────────────────────────────────── */}
       <section className="bg-muted/40 py-16">
         <div className="container">
           <motion.div
@@ -480,37 +476,38 @@ export function ContactContent() {
             initial="hidden"
             animate={mapInView ? "visible" : "hidden"}
           >
-            <div
-              className="rounded-2xl bg-primary overflow-hidden flex flex-col items-center justify-center gap-5 py-20 text-center"
-              style={{
-                minHeight: 280,
-                backgroundImage: [
-                  "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)",
-                  "linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
-                ].join(","),
-                backgroundSize: "48px 48px",
-              }}
-            >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent/20">
-                <MapPin className="h-7 w-7 text-accent" strokeWidth={1.5} />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <p className="font-display text-xl text-white font-semibold">
-                  LLSA Offices, Maseru District, Lesotho
-                </p>
-                <p className="text-sm text-white/40">
-                  Map embed will appear here once the office address is confirmed
+            <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent/20" aria-hidden="true">
+                  <MapPin className="h-5 w-5 text-accent" strokeWidth={1.5} />
+                </span>
+                <p className="font-display text-xl text-primary font-semibold">
+                  Chief Surveyor&apos;s Office, Maseru
                 </p>
               </div>
 
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 rounded-lg border border-accent/40 px-5 py-2.5 text-sm font-medium text-accent hover:bg-accent hover:text-primary transition-colors"
-              >
-                <MapPin className="h-4 w-4" />
-                Get Directions
-              </a>
+              <div className="w-full aspect-video overflow-hidden rounded-2xl border border-border bg-muted">
+                <iframe
+                  src="https://www.google.com/maps?q=-29.3142148,27.481942&z=16&output=embed"
+                  title="Chief Surveyor's Office, Maseru on Google Maps"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-full w-full border-0"
+                  allowFullScreen
+                />
+              </div>
+
+              <div>
+                <a
+                  href="https://www.google.com/maps/place/Ministry+of+Local+Government/@-29.3142148,27.481942,16z/data=!3m1!4b1!4m6!3m5!1s0x1e8dcb14ffc991bd:0x91b91d8bc59485eb!8m2!3d-29.3142148!4d27.481942!16s%2Fg%2F11gfd8v8h_?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-accent/40 px-5 py-2.5 text-sm font-medium text-accent hover:bg-accent hover:text-primary transition-colors"
+                >
+                  <MapPin className="h-4 w-4" />
+                  Get Directions
+                </a>
+              </div>
             </div>
           </motion.div>
         </div>

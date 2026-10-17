@@ -5,12 +5,12 @@ import { CPDContent } from "@/components/cpd/CPDContent"
 export const metadata: Metadata = {
   title: "Continuing Professional Development",
   description:
-    "LLSA CPD programme — annual requirements, upcoming training events, and member record submission for licensed land surveyors in Lesotho.",
+    "GIL CPD programme — annual requirements, upcoming training events, and member record submission for licensed land surveyors in Lesotho.",
   alternates: { canonical: "/cpd" },
   openGraph: {
-    title: "Continuing Professional Development | LLSA",
+    title: "Continuing Professional Development | GIL",
     description:
-      "LLSA CPD programme — annual requirements, training events, and record submission for licensed land surveyors in Lesotho.",
+      "GIL CPD programme — annual requirements, training events, and record submission for licensed land surveyors in Lesotho.",
     url: "/cpd",
   },
 }

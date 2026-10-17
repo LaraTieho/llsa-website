@@ -5,12 +5,12 @@ import { ContactContent } from "@/components/contact/ContactContent"
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with the Lesotho Land Surveyors Association — office address, email, phone, council contacts, and an online enquiry form.",
+    "Get in touch with the Geomatics Institute of Lesotho — office address, email, phone, committee contacts, and an online enquiry form.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact LLSA",
+    title: "Contact GIL",
     description:
-      "Reach the Lesotho Land Surveyors Association — office address, email, phone, council contacts, and online enquiry form.",
+      "Reach the Geomatics Institute of Lesotho — office address, email, phone, committee contacts, and online enquiry form.",
     url: "/contact",
   },
 }
@@ -20,7 +20,7 @@ export default function ContactPage() {
     <>
       <PageHero
         title="Contact Us"
-        subtitle="Get in touch with the Lesotho Land Surveyors Association"
+        subtitle="Get in touch with the Geomatics Institute of Lesotho"
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Contact" },

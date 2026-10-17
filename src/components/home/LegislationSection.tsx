@@ -10,6 +10,7 @@ interface Legislation {
   title: string
   description: string
   badge: string
+  href: string
   repealed?: boolean
 }
 
@@ -20,6 +21,7 @@ const LEGISLATION: Legislation[] = [
     description:
       "The principal legislation governing land survey practice in Lesotho. Establishes the office of the Chief Surveyor, licensing requirements for professional surveyors, and the legal status of survey records.",
     badge: "Principal Act",
+    href: "/docs/land-survey-act-1980.pdf",
   },
   {
     id: "survey-regs",
@@ -27,6 +29,7 @@ const LEGISLATION: Legislation[] = [
     description:
       "Detailed procedural rules made under the Land Survey Act — prescribing survey accuracy standards, diagram formats, field record requirements, and lodgement procedures.",
     badge: "Subsidiary Legislation",
+    href: "/docs/land-survey-regulations-1982.pdf",
   },
   {
     id: "survey-amendment-2012",
@@ -34,6 +37,7 @@ const LEGISLATION: Legislation[] = [
     description:
       "Originally transferred the Chief Surveyor's functions to the Land Administration Authority. Fully repealed by the Land Survey (Amendment) Act 2019 (Act No. 2 of 2019) — no longer in force.",
     badge: "Repealed",
+    href: "/docs/land-survey-amendment-act-2012.pdf",
     repealed: true,
   },
   {
@@ -42,6 +46,7 @@ const LEGISLATION: Legislation[] = [
     description:
       "Repeals the 2012 Amendment Act in its entirety. Restores the Chief Surveyor to the Public Service under the Commissioner of Lands. Establishes the Land Surveyors' Board (chaired by the Chief Surveyor) and affirms the spatial data infrastructure mandate.",
     badge: "Current Amendment",
+    href: "/docs/land-survey-amendment-act-2019.pdf",
   },
   {
     id: "laa-act",
@@ -49,6 +54,7 @@ const LEGISLATION: Legislation[] = [
     description:
       "Establishes the Land Administration Authority (LAA) as the institutional home for survey and land administration functions. The LAA now administers the national cadastre and oversees licensed surveyor functions.",
     badge: "Institutional Framework",
+    href: "/docs/laa-act-2010.pdf",
   },
   {
     id: "land-act",
@@ -56,6 +62,15 @@ const LEGISLATION: Legislation[] = [
     description:
       "Governs land tenure, leases, allocations, and expropriation across Lesotho. Defines the legal context within which cadastral surveys and land transactions operate — including the Commissioner of Lands' functions.",
     badge: "Land Tenure",
+    href: "/docs/land-act-2010.pdf",
+  },
+  {
+    id: "board-notice-2026",
+    title: "Land Surveyors Board Notice, 2026 (L.N. No. 71 of 2026)",
+    description:
+      "The Land Surveyors (Appointment of Members of the Board) Notice, 2026 — made under section 4(1) of the Land Survey Act, 1980 and published in the Lesotho Government Gazette Vol. 71, No. 65 of 31 July 2026 (L.N. No. 69–72 of 2026).",
+    badge: "Board Appointment",
+    href: "/docs/gazette-ln-69-72-of-2026.pdf",
   },
 ]
 
@@ -100,7 +115,7 @@ export function LegislationSection() {
           >
             Professional land surveying in Lesotho is governed by a suite of legislation that
             establishes the licensing regime, cadastral standards, and the institutional mandate
-            of the Chief Surveyor and Land Administration Authority. LLSA members practise within
+            of the Chief Surveyor and Land Administration Authority. GIL members practise within
             this framework.
           </motion.p>
         </motion.div>
@@ -152,7 +167,7 @@ export function LegislationSection() {
 
 // ── LegislationCard ───────────────────────────────────────────
 function LegislationCard({ item }: { item: Legislation }) {
-  const { title, description, badge, repealed } = item
+  const { title, description, badge, href, repealed } = item
   return (
     <motion.div
       variants={fadeInUp}
@@ -186,12 +201,13 @@ function LegislationCard({ item }: { item: Legislation }) {
         {description}
       </p>
 
-      <Link
-        href="#"
+      <a
+        href={href}
+        download
         className="inline-block text-sm font-medium text-accent hover:text-white transition-colors"
       >
         Download PDF ↓
-      </Link>
+      </a>
     </motion.div>
   )
 }

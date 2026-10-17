@@ -36,21 +36,27 @@ export function WhoWeAre() {
               variants={fadeInUp}
               className="font-display text-2xl md:text-display-md text-primary leading-tight"
             >
-              The Professional Body for Land Surveyors in Lesotho
+              The Professional Body for Geomatics in Lesotho
             </motion.h2>
             <motion.p variants={fadeInUp} className="text-base text-foreground/70 leading-relaxed">
-              The Lesotho Land Surveyors Association (LLSA) is the representative professional
-              body for licensed land surveyors and geomatics practitioners in the Kingdom of
-              Lesotho. LLSA promotes the highest standards of professional practice, advocates
-              for the land surveying profession, and supports the development of geospatial
-              capacity in Lesotho.
+              The Geomatics Institute of Lesotho (GIL) is the voluntary professional body for land
+              surveyors and geomatics practitioners in the Kingdom of Lesotho. It was founded in
+              April 1997 as the Lesotho Land Surveyors Association (LLSA) and has represented the
+              surveying profession ever since.
             </motion.p>
             <motion.p variants={fadeInUp} className="text-base text-foreground/70 leading-relaxed">
-              {/* TODO: [LLSA CONTENT] — add actual LLSA founding year; e.g. "Established in [YEAR] under the framework..." */}
-            Established under the framework of the Land Survey Act No. 14 of 1980, LLSA works
-              in close collaboration with the Land Administration Authority and other statutory
-              bodies to ensure that land survey practice in Lesotho meets recognised professional
-              and technical standards.
+              In 2026 the Association widened its scope from land surveying to the full range of
+              geospatial science — land surveying, geographic information science (GISc), mine
+              surveying and engineering surveying — and became the Geomatics Institute of Lesotho.
+              The name is deliberately Geomatics Institute of Lesotho, not &lsquo;Lesotho Geomatics
+              Institute&rsquo;: the Law Office no longer allows an association&apos;s name to begin
+              with &lsquo;Lesotho&rsquo;.
+            </motion.p>
+            <motion.p variants={fadeInUp} className="text-base text-foreground/70 leading-relaxed">
+              The Institute works alongside, and does not replace, the statutory bodies: the Land
+              Surveyors&apos; Board, which licenses surveyors under the Land Survey Act No. 14 of
+              1980 (as amended by Act No. 2 of 2019); the Chief Surveyor; and the Land
+              Administration Authority.
             </motion.p>
           </motion.div>
 

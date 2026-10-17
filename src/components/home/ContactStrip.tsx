@@ -23,7 +23,7 @@ export function ContactStrip() {
           animate={inView ? "visible" : "hidden"}
           className="font-display text-xl text-primary font-semibold leading-snug max-w-md text-center sm:text-left"
         >
-          Have a question about LLSA membership, CPD, or licensing?
+          Have a question about GIL membership, CPD, or licensing?
         </motion.p>
 
         {/* Right: buttons */}
@@ -39,13 +39,13 @@ export function ContactStrip() {
           >
             Contact Us
           </Link>
-          {/* TODO: [LLSA CONTENT] — upload LLSA Constitution PDF to public/docs/llsa-constitution.pdf and confirm path */}
-          <Link
-            href="/public/docs/llsa-constitution.pdf"
+          <a
+            href="/docs/gil-constitution-draft-2026.pdf"
+            download
             className="inline-flex items-center px-7 py-3 rounded-md border-2 border-primary text-primary font-semibold text-sm hover:bg-primary hover:text-white transition-colors duration-200"
           >
-            Download Constitution
-          </Link>
+            Download Constitution (draft)
+          </a>
         </motion.div>
       </div>
     </section>

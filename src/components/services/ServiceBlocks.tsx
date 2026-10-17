@@ -394,7 +394,7 @@ const SERVICES: Service[] = [
     paragraphs: [
       "Geographic Information Systems (GIS) practitioners collect, manage, analyse, and visualise spatial data — linking the surveyor's field measurements to database-driven decision support systems used by government, health services, NGOs, and the private sector.",
       "In Lesotho, GIS practitioners work closely with the LAA to maintain the national land information system, support district planning offices with spatial analysis, and build data management frameworks for facility mapping across health, education, and water sectors. GIS data underpins the delivery of government services at the local level.",
-      "LLSA members practising as GIS specialists contribute to data standardisation, metadata management, and the integration of survey datasets with national spatial data infrastructure — ensuring that cadastral, topographic, and planning data remains interoperable and current.",
+      "GIL members practising as GIS specialists contribute to data standardisation, metadata management, and the integration of survey datasets with national spatial data infrastructure — ensuring that cadastral, topographic, and planning data remains interoperable and current.",
     ],
     Illustration: GisIllustration,
   },
@@ -416,7 +416,7 @@ const SERVICES: Service[] = [
     paragraphs: [
       "A land rights audit is a formal investigation that establishes the legal status of a parcel of land — confirming ownership, the nature of any registered rights (leasehold, freehold, customary), the precise boundaries as surveyed, and any encroachments, disputes, or encumbrances affecting the land.",
       "Licensed surveyors contribute technical evidence to boundary dispute proceedings — measuring and re-establishing original survey beacons, comparing current occupation with registered diagrams, and producing formal survey reports and plans that can be tendered in Land Court proceedings or before the Land Tribunal established under the Land Act, 2010.",
-      "Formal land audit reports are increasingly required by financial institutions, government agencies, and project developers as due diligence documentation before land transactions, lease registrations, or infrastructure development. LLSA members are equipped to produce these reports to the standards required by the LAA and the Deeds Registry.",
+      "Formal land audit reports are increasingly required by financial institutions, government agencies, and project developers as due diligence documentation before land transactions, lease registrations, or infrastructure development. GIL members are equipped to produce these reports to the standards required by the LAA and the Deeds Registry.",
     ],
     Illustration: LandRightsIllustration,
   },
@@ -543,7 +543,7 @@ export function ServiceBlocks() {
               Looking for a licensed surveyor in Lesotho?
             </p>
             <p className="text-sm text-foreground/55">
-              LLSA maintains a register of all licensed Professional Land Surveyors and registered practices.
+              GIL maintains a register of all licensed Professional Land Surveyors and registered practices.
             </p>
           </div>
           <Link

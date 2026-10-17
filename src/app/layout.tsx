@@ -101,15 +101,16 @@ const jsonLd = {
   description:
     "The professional body for licensed land surveyors and geomatics practitioners in the Kingdom of Lesotho.",
   address: {
-    // TODO: [LLSA CONTENT] — add streetAddress, postalCode fields once confirmed
     "@type": "PostalAddress",
+    streetAddress: "Chief Surveyor's Office, Ministry of Local Government and Chieftainship",
     addressLocality: "Maseru",
     addressCountry: "LS",
   },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "member services",
-    email: "secretary@llsa.org.ls", // TODO: [LLSA CONTENT] — replace with actual LLSA secretary email address
+    email: "geomaticsinstitute.ls@gmail.com",
+    telephone: "+266-6234-9190",
     areaServed: "LS",
     availableLanguage: ["English", "Sesotho"],
   },

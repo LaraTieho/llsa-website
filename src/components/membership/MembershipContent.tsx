@@ -3,8 +3,8 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import {
-  BadgeCheck, Ruler, GraduationCap,
-  Search, Check, AlertTriangle, FileDown, MapPin,
+  BadgeCheck, Ruler, Globe, GraduationCap, BookOpen, Handshake, Hourglass, Medal, Award,
+  Search, Check, AlertTriangle, FileDown, FileText, MapPin,
 } from "lucide-react"
 import { fadeInUp, staggerContainer, slideInLeft } from "@/lib/animations"
 import type { LucideIcon } from "lucide-react"
@@ -18,6 +18,7 @@ interface Category {
   description: string
   requirements: string[]
   cta: string
+  href?: string
 }
 
 interface Member {
@@ -30,103 +31,178 @@ interface Member {
 
 // ── Data ───────────────────────────────────────────────────────
 
+const APPLICATION_FORM = "/docs/gil-membership-application-form.docx"
+
+// Membership categories — Constitution draft, Art. 6.7; CPD hours from Art. 8
 const CATEGORIES: Category[] = [
   {
     Icon: BadgeCheck,
-    label: "Professional",
-    title: "Professional Land Surveyor",
+    label: "Voting",
+    title: "Professional Member",
     description:
-      "Full membership for persons holding a professional surveying licence issued under the Land Survey Act and recognised by the LAA.",
+      "Licensed Professional Land Surveyor registered under the Land Survey Act.",
     requirements: [
-      "Licensed under Land Survey Act s.XX", // TODO: [LLSA CONTENT] — replace "s.XX" with the correct section number from the Land Survey Act 1980
-      "Passed professional examinations",
-      "Prescribed work experience certified",
+      "Licensed and registered under the Land Survey Act",
+      "Voting rights: Yes",
+      "CPD: 25 hours per year",
     ],
-    cta: "Apply — Professional",
+    cta: "Download application form",
+    href: APPLICATION_FORM,
   },
   {
     Icon: Ruler,
-    label: "Associate",
-    title: "Survey Technologist / Technician",
+    label: "Voting",
+    title: "Technologist Member",
     description:
-      "Associate membership for survey technologists and technicians supporting the cadastral and engineering survey functions.",
+      "Holder of a recognised National Diploma (or equivalent) in surveying or geomatics, registered with the relevant authority or practising under a Professional Member.",
     requirements: [
-      "Relevant technical qualification",
-      "Working under supervision of a licensed surveyor",
-      "Or through LAA-recognised programme",
+      "Recognised National Diploma (or equivalent) in surveying or geomatics",
+      "Voting rights: Yes",
+      "CPD: 20 hours per year",
     ],
-    cta: "Apply — Technologist",
+    cta: "Download application form",
+    href: APPLICATION_FORM,
+  },
+  {
+    Icon: Globe,
+    label: "Voting",
+    title: "GIS Practitioner Member",
+    description:
+      "Holder of a recognised qualification in GIS, geospatial science or a related field who is actively practising.",
+    requirements: [
+      "Recognised qualification in GIS, geospatial science or related field",
+      "Voting rights: Yes",
+      "CPD: 20 hours per year",
+    ],
+    cta: "Download application form",
+    href: APPLICATION_FORM,
   },
   {
     Icon: GraduationCap,
-    label: "Student",
+    label: "Non-voting",
+    title: "Graduate Member",
+    description:
+      "Holder of a recognised degree in land surveying, geomatics, GIS or a related field who is completing training and experience towards professional registration.",
+    requirements: [
+      "Recognised degree in land surveying, geomatics, GIS or related field",
+      "Voting rights: No",
+      "CPD: 10 hours per year (encouraged)",
+    ],
+    cta: "Download application form",
+    href: APPLICATION_FORM,
+  },
+  {
+    Icon: BookOpen,
+    label: "Non-voting",
     title: "Student Member",
     description:
-      "Student membership for geomatics students at recognised institutions, including Lerotholi Polytechnic and partner universities.",
+      "Enrolled in an accredited programme in land surveying, geomatics, GIS or another geospatial discipline.",
     requirements: [
-      "Currently enrolled in a recognised land surveying or geomatics programme",
+      "Enrolled in an accredited geospatial programme",
+      "Voting rights: No",
+      "CPD: Exempt",
     ],
-    cta: "Apply — Student",
+    cta: "Download application form",
+    href: APPLICATION_FORM,
+  },
+  {
+    Icon: Handshake,
+    label: "Non-voting",
+    title: "Associate Member",
+    description:
+      "Allied professional whose qualifications or experience benefit the Institute, admitted at the Committee's discretion.",
+    requirements: [
+      "Admitted at the Committee's discretion",
+      "Voting rights: No",
+    ],
+    cta: "Download application form",
+    href: APPLICATION_FORM,
+  },
+  {
+    Icon: Hourglass,
+    label: "Voting",
+    title: "Retired Member",
+    description:
+      "Former active member in good standing who has retired from full-time practice.",
+    requirements: [
+      "Former active member in good standing",
+      "Voting rights: Yes",
+    ],
+    cta: "Download application form",
+    href: APPLICATION_FORM,
+  },
+  {
+    Icon: Medal,
+    label: "Voting",
+    title: "Fellow",
+    description:
+      "Professional Member with at least 10 years' continuous membership and a distinguished contribution to the profession.",
+    requirements: [
+      "Professional Member for at least 10 continuous years",
+      "Distinguished contribution to the profession",
+      "Voting rights: Yes",
+    ],
+    cta: "Apply via the Secretary",
+    href: "mailto:geomaticsinstitute.ls@gmail.com?subject=Fellowship%20application",
+  },
+  {
+    Icon: Award,
+    label: "Voting",
+    title: "Honorary Life Member",
+    description:
+      "Nominated by the Committee and elected by a two-thirds majority of members.",
+    requirements: [
+      "Nominated by the Committee",
+      "Elected by a two-thirds majority of members",
+      "Voting rights: Yes",
+    ],
+    cta: "By Committee nomination only",
   },
 ]
+
+const BRANCHES = ["Land Surveying", "GISc", "Mine Surveying", "Engineering Surveying"]
 
 const STEPS = [
   {
-    title: "Download & complete the application form",
+    title: "Download and complete the application form",
     description:
-      "Obtain the LLSA membership application form from the Secretary or this website.",
+      "Download the form from this page (Word or PDF) and complete it in full.",
   },
   {
-    title: "Attach proof of qualification and experience",
+    title: "Get a proposer and seconder",
     description:
-      "Certified copies of transcripts, certificates, and a letter from your supervising surveyor where applicable.",
+      "Both must be subscribed members of the Institute. You may propose yourself; a seconder is still required.",
   },
   {
-    title: "Submit to LLSA Secretary with applicable fee",
+    title: "Attach your documents",
     description:
-      "Deliver your completed application and supporting documents together with the applicable membership fee.",
+      "Certified copies of your ID, certificates and transcripts, and proof of licence or registration where applicable.",
   },
   {
-    title: "Applications reviewed by Council within 30 days",
+    title: "Submit two copies to the Secretary with the registration fee",
     description:
-      "The Council reviews all applications at its next scheduled meeting, which convenes within 30 days of submission.",
+      "Email Geomaticsinstitute.ls@gmail.com or deliver to the Chief Surveyor's Office, Maseru. Fees are set by the AGM; ask the Secretary for the current schedule.",
   },
   {
-    title: "Certificate of membership issued upon approval",
+    title: "The Committee decides within 30 days",
     description:
-      "Successful applicants receive a signed certificate and are listed in the LLSA register.",
+      "You are informed in writing. If your application is refused you may appeal to the Committee within 30 days.",
+  },
+  {
+    title: "Membership starts on acceptance",
+    description:
+      "Membership begins when you receive written acceptance and pay the annual subscription.",
   },
 ]
 
-// TODO: [LLSA CONTENT] — PLACEHOLDER DATA: replace with actual licensed surveyor register entries from the LAA/LLSA records
-const MEMBERS: Member[] = [
-  {
-    name: "M. Mokoena",
-    licenceNo: "LS-001-2018",
-    category: "Professional Land Surveyor",
-    district: "Maseru",
-    contact: "[Contact via Secretary]",
-  },
-  {
-    name: "T. Letsie",
-    licenceNo: "LS-024-2015",
-    category: "Professional Land Surveyor",
-    district: "Leribe",
-    contact: "[Contact via Secretary]",
-  },
-  {
-    name: "S. Nthati",
-    licenceNo: "ST-007-2020",
-    category: "Survey Technologist",
-    district: "Berea",
-    contact: "[Contact via Secretary]",
-  },
-]
+// TODO: [GIL CONTENT] — add licensed surveyor register entries once the Land Surveyors' Board publishes them
+const MEMBERS: Member[] = []
 
 // ── CategoryCard ───────────────────────────────────────────────
 
 function CategoryCard({ cat }: { cat: Category }) {
   const Icon = cat.Icon
+  const isFile = cat.href?.startsWith("/docs/")
   return (
     <motion.div
       variants={fadeInUp}
@@ -162,21 +238,27 @@ function CategoryCard({ cat }: { cat: Category }) {
       {/* Fee */}
       <div className="flex items-center gap-2 pt-1 border-t border-border">
         <span className="text-xs text-foreground/40 font-sans">Annual fee:</span>
-        {/* TODO: [LLSA CONTENT] — replace with actual annual membership fee for each category */}
+        {/* TODO: [GIL CONTENT] — fees are set by the AGM (Art. 7.3); publish only once approved */}
         <span className="text-xs font-mono font-medium text-foreground/55">
-          [Contact Secretary]
+          Set by the AGM — ask the Secretary
         </span>
       </div>
 
       {/* CTA */}
       <div className="mt-auto">
-        {/* TODO: [LLSA CONTENT] — replace "#" with actual membership application link or form URL for each category */}
-        <a
-          href="#"
-          className="block w-full text-center rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-primary hover:bg-accent/85 transition-colors"
-        >
-          {cat.cta}
-        </a>
+        {cat.href ? (
+          <a
+            href={cat.href}
+            {...(isFile ? { download: true } : {})}
+            className="block w-full text-center rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-primary hover:bg-accent/85 transition-colors"
+          >
+            {cat.cta}
+          </a>
+        ) : (
+          <p className="text-center text-sm font-medium text-foreground/50 py-3">
+            {cat.cta}
+          </p>
+        )}
       </div>
     </motion.div>
   )
@@ -240,7 +322,7 @@ export function MembershipContent() {
   const noteRef = useRef<HTMLDivElement>(null)
 
   const catsHeadingInView = useInView(catsHeadingRef, { once: true, amount: 0.6 })
-  const catsInView = useInView(catsRef, { once: true, amount: 0.08 })
+  const catsInView = useInView(catsRef, { once: true, amount: 0.05 })
   const processHeadingInView = useInView(processHeadingRef, { once: true, amount: 0.6 })
   const processInView = useInView(processRef, { once: true, amount: 0.06 })
   const dirHeadingInView = useInView(dirHeadingRef, { once: true, amount: 0.6 })
@@ -277,9 +359,24 @@ export function MembershipContent() {
               variants={fadeInUp}
               className="mt-4 text-base text-foreground/60 leading-relaxed"
             >
-              LLSA offers three categories of membership aligned with the licensing and
-              qualification framework prescribed by the Land Survey Act.
+              The Institute has nine membership categories, set by Article 6.7 of its
+              Constitution. Members practise in four branches: Land Surveying, GISc, Mine
+              Surveying and Engineering Surveying.
             </motion.p>
+            <motion.ul
+              variants={fadeInUp}
+              className="mt-5 flex flex-wrap justify-center gap-2"
+              aria-label="Branches of practice"
+            >
+              {BRANCHES.map((branch) => (
+                <li
+                  key={branch}
+                  className="rounded-full border border-accent/40 bg-accent/10 px-3.5 py-1 text-xs font-medium text-primary"
+                >
+                  {branch}
+                </li>
+              ))}
+            </motion.ul>
           </motion.div>
 
           <motion.div
@@ -287,7 +384,7 @@ export function MembershipContent() {
             variants={staggerContainer}
             initial="hidden"
             animate={catsInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {CATEGORIES.map((cat, i) => (
               <CategoryCard key={i} cat={cat} />
@@ -333,7 +430,7 @@ export function MembershipContent() {
             {/* Desktop: horizontal connector line running through step circle centres */}
             <div
               className="hidden lg:block absolute top-[22px] h-px z-0"
-              style={{ left: "calc(10% + 22px)", right: "calc(10% + 22px)" }}
+              style={{ left: "calc(100% / 12 + 22px)", right: "calc(100% / 12 + 22px)" }}
               aria-hidden="true"
             >
               <div className="h-full bg-gradient-to-r from-transparent via-accent/35 to-transparent" />
@@ -375,15 +472,23 @@ export function MembershipContent() {
             variants={fadeInUp}
             initial="hidden"
             animate={processInView ? "visible" : "hidden"}
-            className="mt-14 flex justify-center"
+            className="mt-14 flex flex-wrap justify-center gap-4"
           >
-            {/* TODO: [LLSA CONTENT] — upload membership application form PDF to public/docs/llsa-membership-application.pdf */}
             <a
-              href="/docs/llsa-membership-application.pdf"
-              className="inline-flex items-center gap-2.5 rounded-lg border-2 border-accent px-7 py-3.5 text-sm font-semibold text-accent hover:bg-accent hover:text-primary transition-colors"
+              href="/docs/gil-membership-application-form.docx"
+              download
+              className="inline-flex items-center gap-2.5 rounded-lg bg-accent px-7 py-3.5 text-sm font-semibold text-primary hover:bg-accent/85 transition-colors"
             >
               <FileDown className="h-4 w-4" />
-              Download Application Form
+              Download Application Form (Word)
+            </a>
+            <a
+              href="/docs/gil-membership-application-form.pdf"
+              download
+              className="inline-flex items-center gap-2.5 rounded-lg border-2 border-accent px-7 py-3.5 text-sm font-semibold text-accent hover:bg-accent hover:text-primary transition-colors"
+            >
+              <FileText className="h-4 w-4" />
+              PDF version
             </a>
           </motion.div>
 
@@ -418,44 +523,59 @@ export function MembershipContent() {
               variants={fadeInUp}
               className="mt-4 text-base text-foreground/60 leading-relaxed"
             >
-              Search the LLSA register of licensed surveyors by name, district, or licence number.
+              Search the GIL register of licensed surveyors by name, district, or licence number.
             </motion.p>
           </motion.div>
 
-          {/* Search input */}
-          <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            animate={dirHeadingInView ? "visible" : "hidden"}
-            className="max-w-xl mx-auto mb-10"
-          >
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/35 pointer-events-none" aria-hidden="true" />
-              <label htmlFor="surveyor-search" className="sr-only">Search licensed surveyors by name, licence number or district</label>
-              <input
-                id="surveyor-search"
-                type="search"
-                placeholder="Search by name, licence number or district…"
-                className="w-full rounded-xl border border-border bg-background px-4 py-3.5 pl-11 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent/40 transition-all"
-              />
-            </div>
-            <p className="mt-2 text-center text-xs text-foreground/40">
-              Live directory search is not yet active — showing sample register entries.
-            </p>
-          </motion.div>
+          {MEMBERS.length > 0 ? (
+            <>
+              {/* Search input */}
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                animate={dirHeadingInView ? "visible" : "hidden"}
+                className="max-w-xl mx-auto mb-10"
+              >
+                <div className="relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/35 pointer-events-none" aria-hidden="true" />
+                  <label htmlFor="surveyor-search" className="sr-only">Search licensed surveyors by name, licence number or district</label>
+                  <input
+                    id="surveyor-search"
+                    type="search"
+                    placeholder="Search by name, licence number or district…"
+                    className="w-full rounded-xl border border-border bg-background px-4 py-3.5 pl-11 text-sm text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent/40 transition-all"
+                  />
+                </div>
+              </motion.div>
 
-          {/* Member cards */}
-          <motion.div
-            ref={dirRef}
-            variants={staggerContainer}
-            initial="hidden"
-            animate={dirInView ? "visible" : "hidden"}
-            className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto mb-10"
-          >
-            {MEMBERS.map((member, i) => (
-              <MemberCard key={i} member={member} />
-            ))}
-          </motion.div>
+              {/* Member cards */}
+              <motion.div
+                ref={dirRef}
+                variants={staggerContainer}
+                initial="hidden"
+                animate={dirInView ? "visible" : "hidden"}
+                className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto mb-10"
+              >
+                {MEMBERS.map((member, i) => (
+                  <MemberCard key={i} member={member} />
+                ))}
+              </motion.div>
+            </>
+          ) : (
+            <motion.div
+              ref={dirRef}
+              variants={fadeInUp}
+              initial="hidden"
+              animate={dirInView ? "visible" : "hidden"}
+              className="max-w-4xl mx-auto mb-10 rounded-xl border border-border bg-card p-8 text-center"
+            >
+              <p className="text-base text-foreground/70 leading-relaxed">
+                Lesotho currently has 2 licensed land surveyors. The public register will be
+                published here once the Land Surveyors&apos; Board licenses the current 11
+                candidate surveyors, expected by March 2027.
+              </p>
+            </motion.div>
+          )}
 
           {/* Note box */}
           <motion.div
@@ -469,7 +589,7 @@ export function MembershipContent() {
             <p className="text-sm text-white/70 leading-relaxed">
               Directory is for public reference only. Licence status should be verified with the{" "}
               <span className="text-accent font-medium">Land Administration Authority</span>.
-              The LLSA register is maintained on a best-efforts basis and may not reflect
+              The GIL register is maintained on a best-efforts basis and may not reflect
               real-time licensing changes.
             </p>
           </motion.div>

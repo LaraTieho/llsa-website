@@ -51,13 +51,13 @@ export function Objectives() {
             variants={fadeInUp}
             className="font-display text-2xl md:text-display-md text-primary"
           >
-            Objectives of LLSA
+            Objectives of GIL
           </motion.h2>
           <motion.p
             variants={fadeInUp}
             className="mt-4 text-base text-foreground/65 leading-relaxed"
           >
-            As set out in the LLSA Constitution, the Association pursues the following objectives
+            As set out in the GIL Constitution, the Institute pursues the following objectives
             in service of its members and the broader land administration sector.
           </motion.p>
         </motion.div>

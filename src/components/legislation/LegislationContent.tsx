@@ -23,6 +23,12 @@ interface Provision {
   body: string
 }
 
+interface LibraryDoc {
+  title: string
+  href: string
+  type: "PDF" | "Word"
+}
+
 interface ExternalLink {
   label: string
   description: string
@@ -40,7 +46,7 @@ const ACTS: Act[] = [
     statusNote: "as amended",
     purpose:
       "The principal Act establishing the licensing regime for professional land surveyors in Lesotho. It defines the office of the Chief Surveyor, prescribes the conditions under which survey diagrams are prepared and lodged, and sets out penalties for unlicensed practice.",
-    downloadHref: "/docs/land-survey-act-1980.pdf", // TODO: [LLSA CONTENT] — upload actual PDF to public/docs/ and verify path
+    downloadHref: "/docs/land-survey-act-1980.pdf",
   },
   {
     title: "Land Survey Regulations",
@@ -50,7 +56,7 @@ const ACTS: Act[] = [
     status: "In Force",
     purpose:
       "Subsidiary legislation made under the Land Survey Act prescribing accuracy standards, diagram formats, field note requirements, and the procedural rules governing lodgement of survey records with the Chief Surveyor.",
-    downloadHref: "/docs/land-survey-regulations-1982.pdf", // TODO: [LLSA CONTENT] — upload actual PDF to public/docs/ and verify path
+    downloadHref: "/docs/land-survey-regulations-1982.pdf",
   },
   {
     title: "Land Survey (Amendment) Act",
@@ -60,7 +66,7 @@ const ACTS: Act[] = [
     status: "Repealed",
     purpose:
       "Originally transferred the Chief Surveyor's functions to the Land Administration Authority. Repealed in its entirety by the Land Survey (Amendment) Act 2019 (Act No. 2 of 2019). Not currently in force.",
-    downloadHref: "/docs/land-survey-amendment-act-2012.pdf", // TODO: [LLSA CONTENT] — upload actual PDF to public/docs/ and verify path
+    downloadHref: "/docs/land-survey-amendment-act-2012.pdf",
   },
   {
     title: "Land Survey (Amendment) Act",
@@ -70,7 +76,7 @@ const ACTS: Act[] = [
     status: "In Force",
     purpose:
       "Repeals the Land Survey (Amendment) Act 2012 in its entirety. Restores the office of Chief Surveyor to the Public Service under the Commissioner of Lands. Establishes the Land Surveyors' Board (chaired by the Chief Surveyor, with representatives from the LAA, licensed surveyors, and the ministries of Local Government and Education). Meetings quarterly; 3-year terms, maximum two consecutive.",
-    downloadHref: "#",
+    downloadHref: "/docs/land-survey-amendment-act-2019.pdf",
     sourceNote: "Gazette Vol. 64, No. 30, 18 April 2019",
   },
   {
@@ -81,7 +87,7 @@ const ACTS: Act[] = [
     status: "In Force",
     purpose:
       "Establishes the LAA as an autonomous body responsible for land administration in Lesotho, including cadastral survey management, title registration, and land valuation functions previously dispersed across government ministries.",
-    downloadHref: "/docs/laa-act-2010.pdf", // TODO: [LLSA CONTENT] — upload actual PDF to public/docs/ and verify path
+    downloadHref: "/docs/laa-act-2010.pdf",
   },
   {
     title: "Land Act",
@@ -92,8 +98,32 @@ const ACTS: Act[] = [
     statusNote: "as amended",
     purpose:
       "The primary land tenure statute governing allocation, leasing, and registration of rights in land. It establishes the legal framework within which cadastral surveys are required for lease issuance and provides for customary land rights recognition.",
-    downloadHref: "/docs/land-act-2010.pdf", // TODO: [LLSA CONTENT] — upload actual PDF to public/docs/ and verify path
+    downloadHref: "/docs/land-act-2010.pdf",
   },
+  {
+    title: "Land Surveyors (Appointment of Members of the Board) Notice, 2026",
+    number: "L.N. No. 69–72 of 2026",
+    year: 2026,
+    adminBody: "Minister of Local Government and Chieftainship",
+    status: "In Force",
+    purpose:
+      "Appoints the members of the Land Surveyors' Board under section 4(1) of the Land Survey Act, 1980: Mr. Pheello Ramotubei (Chairperson); Adv. Moupo Ntoko (Ministry of Local Government and Chieftainship); Mr. Moleli Mochoni (Land Administration Authority); Mr. Martin Nts'ihlele (registered land surveyors); and Mr. Lipholo Motlalane (Ministry of Education). Published as Legal Notice No. 71 in the Gazette containing L.N. No. 69–72 of 2026.",
+    downloadHref: "/docs/gazette-ln-69-72-of-2026.pdf",
+    sourceNote: "Lesotho Government Gazette Vol. 71, No. 65, 31 July 2026",
+  },
+]
+
+const DOCUMENTS: LibraryDoc[] = [
+  { title: "Land Survey Act No. 14 of 1980", href: "/docs/land-survey-act-1980.pdf", type: "PDF" },
+  { title: "Land Survey Regulations, 1982", href: "/docs/land-survey-regulations-1982.pdf", type: "PDF" },
+  { title: "Land Survey (Amendment) Act No. 15 of 2012 (repealed)", href: "/docs/land-survey-amendment-act-2012.pdf", type: "PDF" },
+  { title: "Land Survey (Amendment) Act No. 2 of 2019", href: "/docs/land-survey-amendment-act-2019.pdf", type: "PDF" },
+  { title: "Land Administration Authority Act No. 9 of 2010", href: "/docs/laa-act-2010.pdf", type: "PDF" },
+  { title: "Land Act No. 8 of 2010", href: "/docs/land-act-2010.pdf", type: "PDF" },
+  { title: "L.N. No. 69–72 of 2026 — Gazette Vol. 71 No. 65 (incl. appointment of the Land Surveyors' Board, L.N. No. 71)", href: "/docs/gazette-ln-69-72-of-2026.pdf", type: "PDF" },
+  { title: "GIL Constitution (draft)", href: "/docs/gil-constitution-draft-2026.pdf", type: "PDF" },
+  { title: "Membership application form (Word, editable)", href: "/docs/gil-membership-application-form.docx", type: "Word" },
+  { title: "Membership application form (PDF, for printing)", href: "/docs/gil-membership-application-form.pdf", type: "PDF" },
 ]
 
 const PROVISIONS: Provision[] = [
@@ -127,7 +157,7 @@ const EXTERNAL_LINKS: ExternalLink[] = [
   {
     label: "LesLII",
     description: "Lesotho Legal Information Institute",
-    href: "https://lesotholii.org",
+    href: "https://lesotholii.org/legislation/",
   },
   {
     label: "Laws.Africa",
@@ -137,12 +167,12 @@ const EXTERNAL_LINKS: ExternalLink[] = [
   {
     label: "LAA Website",
     description: "Land Administration Authority",
-    href: "#", // TODO: [LLSA CONTENT] — replace with actual LAA website URL
+    href: "https://www.laa.org.ls",
   },
   {
-    label: "Office of Parliamentary Counsel",
-    description: "Official legislative drafting office",
-    href: "#", // TODO: [LLSA CONTENT] — replace with actual Office of Parliamentary Counsel website URL
+    label: "Government of Lesotho",
+    description: "Official government portal",
+    href: "https://www.gov.ls",
   },
 ]
 
@@ -194,6 +224,7 @@ function ActCard({ act }: { act: Act }) {
       <div className="pt-1 flex flex-col gap-1.5">
         <a
           href={act.downloadHref}
+          download
           className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/75 transition-colors group"
         >
           <Download className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
@@ -276,6 +307,7 @@ export function LegislationContent() {
   const noteRef = useRef<HTMLDivElement>(null)
   const provisionsHeadingRef = useRef<HTMLDivElement>(null)
   const provisionsRef = useRef<HTMLDivElement>(null)
+  const libraryRef = useRef<HTMLDivElement>(null)
   const resourcesRef = useRef<HTMLDivElement>(null)
 
   const introInView = useInView(introRef, { once: true, amount: 0.5 })
@@ -284,6 +316,7 @@ export function LegislationContent() {
   const noteInView = useInView(noteRef, { once: true, amount: 0.5 })
   const provisionsHeadingInView = useInView(provisionsHeadingRef, { once: true, amount: 0.6 })
   const provisionsInView = useInView(provisionsRef, { once: true, amount: 0.06 })
+  const libraryInView = useInView(libraryRef, { once: true, amount: 0.1 })
   const resourcesInView = useInView(resourcesRef, { once: true, amount: 0.25 })
 
   return (
@@ -300,7 +333,7 @@ export function LegislationContent() {
           >
             Land survey practice in Lesotho is governed by statute. The following legislation is
             publicly available and forms the basis of examination, licensing, and professional
-            practice for all LLSA members. Downloads are provided for reference — these versions
+            practice for all GIL members. Downloads are provided for reference — these versions
             may not reflect the most current official gazette. Members should verify currency with
             the LAA or Office of Parliamentary Counsel.
           </motion.p>
@@ -417,6 +450,61 @@ export function LegislationContent() {
             ))}
           </motion.div>
 
+        </div>
+      </section>
+
+      {/* ── Document Library ───────────────────────────────────── */}
+      <section id="documents" className="bg-background pt-20 scroll-mt-28">
+        <div className="container">
+          <motion.div
+            ref={libraryRef}
+            variants={staggerContainer}
+            initial="hidden"
+            animate={libraryInView ? "visible" : "hidden"}
+            className="max-w-3xl mx-auto"
+          >
+            <motion.div variants={staggerContainer} className="text-center mb-10">
+              <motion.p
+                variants={fadeInUp}
+                className="font-sans text-sm font-medium uppercase tracking-[0.18em] text-accent mb-3"
+                aria-hidden="true"
+              >
+                Downloads
+              </motion.p>
+              <motion.h2
+                variants={fadeInUp}
+                className="font-display text-2xl md:text-display-md text-primary"
+              >
+                Document Library
+              </motion.h2>
+            </motion.div>
+
+            <motion.div
+              variants={staggerContainer}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+              {DOCUMENTS.map((doc) => (
+                <motion.a
+                  key={doc.href}
+                  href={doc.href}
+                  download
+                  variants={fadeInUp}
+                  whileHover={{ y: -2 }}
+                  className="flex items-center justify-between gap-4 p-5 rounded-xl border border-border bg-card hover:border-accent/40 hover:shadow-sm transition-all group"
+                >
+                  <div className="flex flex-col gap-1 min-w-0">
+                    <span className="self-start font-mono text-[10px] font-bold uppercase tracking-wider text-accent bg-accent/10 border border-accent/25 rounded px-1.5 py-0.5">
+                      {doc.type}
+                    </span>
+                    <span className="font-sans font-semibold text-primary text-sm leading-snug group-hover:text-accent transition-colors break-words">
+                      {doc.title}
+                    </span>
+                  </div>
+                  <Download className="h-4 w-4 text-foreground/25 group-hover:text-accent transition-colors shrink-0" aria-hidden="true" />
+                </motion.a>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

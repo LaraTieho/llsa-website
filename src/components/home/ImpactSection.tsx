@@ -100,7 +100,7 @@ export function ImpactSection() {
             className="font-sans text-sm font-medium uppercase tracking-[0.18em] text-accent mb-4"
             aria-hidden="true"
           >
-            Why LLSA Matters
+            Why GIL Matters
           </motion.p>
           <motion.h2
             variants={fadeInUp}
@@ -136,6 +136,25 @@ export function ImpactSection() {
             </div>
           ))}
         </motion.div>
+
+        <motion.p
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          className="font-sans text-sm text-foreground/65 leading-relaxed max-w-2xl mx-auto text-center mt-16"
+        >
+          Lesotho has 2 licensed land surveyors today. Following the appointment of the Land
+          Surveyors&apos; Board, published in the Lesotho Government Gazette on 31 July 2026 (
+          <a
+            href="/docs/gazette-ln-69-72-of-2026.pdf"
+            download
+            className="font-medium text-accent underline underline-offset-2 hover:text-accent/70 transition-colors"
+          >
+            Legal Notice No. 71 of 2026
+          </a>
+          ), 11 candidate surveyors are expected to be awarded licences by March 2027.
+        </motion.p>
 
       </div>
     </section>

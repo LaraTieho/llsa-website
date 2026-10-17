@@ -84,18 +84,18 @@ export function Navbar() {
           </p>
           <div className="flex items-center gap-5 ml-auto md:ml-0 shrink-0">
             <a
-              href="mailto:llsa@lesotho.ls"
+              href="mailto:geomaticsinstitute.ls@gmail.com"
               className="flex items-center gap-1.5 opacity-70 hover:opacity-100 transition-opacity"
             >
               <Mail className="h-3 w-3" aria-hidden="true" />
-              <span className="hidden sm:inline">llsa@lesotho.ls</span>
+              <span className="hidden sm:inline">Geomaticsinstitute.ls@gmail.com</span>
             </a>
             <a
-              href="tel:+26600000000"
+              href="tel:+26662349190"
               className="flex items-center gap-1.5 opacity-70 hover:opacity-100 transition-opacity"
             >
               <Phone className="h-3 w-3" aria-hidden="true" />
-              <span className="hidden sm:inline">+266 XXXX XXXX</span>
+              <span className="hidden sm:inline">+266 6234 9190</span>
             </a>
           </div>
         </div>
