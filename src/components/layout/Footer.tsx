@@ -8,6 +8,7 @@ const quickLinks = [
   { href: "/legislation", label: "Legislation" },
   { href: "/membership", label: "Membership" },
   { href: "/cpd", label: "CPD" },
+  { href: "/faq", label: "FAQ" },
   { href: "/news", label: "News" },
   { href: "/contact", label: "Contact" },
 ]

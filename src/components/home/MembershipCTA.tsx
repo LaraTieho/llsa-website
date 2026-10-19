@@ -184,12 +184,18 @@ export function MembershipCTA() {
               ))}
             </motion.ul>
 
-            <motion.div variants={fadeInUp} className="pt-2">
+            <motion.div variants={fadeInUp} className="pt-2 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
               <Link
                 href="/membership"
-                className="inline-flex items-center px-8 py-3.5 rounded-md bg-accent text-primary font-semibold text-sm hover:bg-accent/85 transition-colors duration-200"
+                className="inline-flex items-center self-start px-8 py-3.5 rounded-md bg-accent text-primary font-semibold text-sm hover:bg-accent/85 transition-colors duration-200"
               >
                 Start Your Application
+              </Link>
+              <Link
+                href="/faq"
+                className="text-sm font-medium text-primary underline decoration-accent/50 underline-offset-4 hover:decoration-accent transition-colors"
+              >
+                Questions about joining or licensing? Read the FAQ
               </Link>
             </motion.div>
           </motion.div>

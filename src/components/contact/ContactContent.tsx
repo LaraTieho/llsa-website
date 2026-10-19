@@ -3,6 +3,7 @@
 import { useRef, useState } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { useForm } from "react-hook-form"
+import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import {
@@ -373,6 +374,14 @@ export function ContactContent() {
                           Fields marked{" "}
                           <span className="text-red-500" aria-hidden="true">*</span>
                           <span className="sr-only">with an asterisk</span> are required.
+                        </p>
+                        <p className="mt-3 text-sm text-foreground/60">
+                          <Link
+                            href="/faq"
+                            className="font-medium text-primary underline decoration-accent/50 underline-offset-2 hover:decoration-accent"
+                          >
+                            Before you write, see our Questions &amp; Answers
+                          </Link>
                         </p>
                       </div>
 

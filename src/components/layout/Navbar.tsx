@@ -16,6 +16,7 @@ const navLinks = [
   { href: "/legislation", label: "Legislation" },
   { href: "/membership", label: "Membership" },
   { href: "/cpd", label: "CPD" },
+  { href: "/faq", label: "FAQ" },
   { href: "/news", label: "News" },
   { href: "/contact", label: "Contact" },
 ]
@@ -133,7 +134,7 @@ export function Navbar() {
                       href={link.href}
                       aria-current={isActive ? "page" : undefined}
                       className={cn(
-                        "relative block px-3 py-2 text-sm font-medium rounded-sm transition-colors",
+                        "relative block px-2 xl:px-3 py-2 text-sm font-medium rounded-sm transition-colors",
                         isActive
                           ? "text-accent"
                           : "text-foreground/70 hover:text-foreground"
@@ -143,7 +144,7 @@ export function Navbar() {
                       {isActive && (
                         <motion.span
                           layoutId="nav-underline"
-                          className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent rounded-full"
+                          className="absolute bottom-0 left-2 right-2 xl:left-3 xl:right-3 h-0.5 bg-accent rounded-full"
                           transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         />
                       )}

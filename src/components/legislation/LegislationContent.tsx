@@ -4,6 +4,7 @@ import { useRef, useState } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { Download, ChevronDown, ExternalLink, AlertTriangle } from "lucide-react"
 import { fadeInUp, staggerContainer } from "@/lib/animations"
+import { CommonQuestions } from "@/components/faq/CommonQuestions"
 
 // ── Types ──────────────────────────────────────────────────────
 interface Act {
@@ -337,6 +338,14 @@ export function LegislationContent() {
             may not reflect the most current official gazette. Members should verify currency with
             the LAA or Office of Parliamentary Counsel.
           </motion.p>
+          <CommonQuestions
+            className="mt-8"
+            links={[
+              { label: "Who may carry out a boundary survey?", href: "/faq#who-may-survey" },
+              { label: "Is GIL the same as the Land Surveyors' Board?", href: "/faq#gil-vs-board" },
+              { label: "Do I need permission to fly drones for mapping?", href: "/faq#drones-aerial" },
+            ]}
+          />
         </div>
       </section>
 

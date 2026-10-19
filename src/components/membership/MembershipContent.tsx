@@ -8,6 +8,7 @@ import {
 } from "lucide-react"
 import { fadeInUp, staggerContainer, slideInLeft } from "@/lib/animations"
 import type { LucideIcon } from "lucide-react"
+import { CommonQuestions } from "@/components/faq/CommonQuestions"
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -160,7 +161,7 @@ const CATEGORIES: Category[] = [
   },
 ]
 
-const BRANCHES = ["Land Surveying", "GISc", "Mine Surveying", "Engineering Surveying"]
+const BRANCHES = ["Land Surveying", "Engineering Surveying", "GISc"]
 
 const STEPS = [
   {
@@ -360,8 +361,8 @@ export function MembershipContent() {
               className="mt-4 text-base text-foreground/60 leading-relaxed"
             >
               The Institute has nine membership categories, set by Article 6.7 of its
-              Constitution. Members practise in four branches: Land Surveying, GISc, Mine
-              Surveying and Engineering Surveying.
+              Constitution. Members practise in three branches: Land Surveying, Engineering
+              Surveying and GISc.
             </motion.p>
             <motion.ul
               variants={fadeInUp}
@@ -377,6 +378,9 @@ export function MembershipContent() {
                 </li>
               ))}
             </motion.ul>
+            <motion.p variants={fadeInUp} className="mt-3 text-xs text-foreground/50">
+              Mine Surveying is not yet adopted and will be taken up separately.
+            </motion.p>
           </motion.div>
 
           <motion.div
@@ -390,6 +394,16 @@ export function MembershipContent() {
               <CategoryCard key={i} cat={cat} />
             ))}
           </motion.div>
+
+          <CommonQuestions
+            className="mt-14 items-center text-center [&_ul]:justify-center"
+            links={[
+              { label: "Which category is right for me?", href: "/faq#which-category" },
+              { label: "Do I need to be licensed to join?", href: "/faq#licence-to-join" },
+              { label: "Does my qualification count?", href: "/faq?category=qualifications" },
+              { label: "How much does membership cost?", href: "/faq#fees" },
+            ]}
+          />
 
         </div>
       </section>

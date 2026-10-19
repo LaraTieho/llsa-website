@@ -14,6 +14,7 @@ import {
   ExternalLink,
 } from "lucide-react"
 import { fadeInUp, staggerContainer } from "@/lib/animations"
+import { CommonQuestions } from "@/components/faq/CommonQuestions"
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -276,6 +277,14 @@ export function CPDContent() {
               </p>
             </motion.div>
           </motion.div>
+
+          <CommonQuestions
+            className="mt-12 items-center text-center [&_ul]:justify-center"
+            links={[
+              { label: "How much CPD do I need?", href: "/faq#cpd-hours" },
+              { label: "What counts as CPD?", href: "/faq#cpd-what-counts" },
+            ]}
+          />
 
         </div>
       </section>

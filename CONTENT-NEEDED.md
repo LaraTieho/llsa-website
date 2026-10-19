@@ -1,6 +1,6 @@
 # GIL Website — Content Needed Before Go-Live
 
-Generated: 2026-06-29 · Updated: 2026-10-17 (GIL website update, Tasks 1–9)
+Generated: 2026-06-29 · Updated: 2026-10-19 (FAQ page added)
 Open items map to `// TODO: [LLSA CONTENT]` / `// TODO: [GIL CONTENT]` comments in the source files listed below.
 
 ---
@@ -25,6 +25,24 @@ Open items map to `// TODO: [LLSA CONTENT]` / `// TODO: [GIL CONTENT]` comments 
 | 39a | **Postal code** in JSON-LD | `src/app/layout.tsx` | `streetAddress` added; no postal code yet |
 | 42 | `/news` page | — | Linked from NewsSection, navbar and footer; does not exist yet |
 | 44 | `/privacy-policy` page | — | Linked in footer; does not exist yet |
+
+---
+
+## FAQ PAGE (`/faq`, added 19 October 2026)
+
+Content lives in `src/data/faq.ts` (copied from `GIL-Website-FAQ-Instructions.md`, Section 0). Update "Last reviewed" (`FAQ_LAST_REVIEWED`) whenever an answer changes.
+
+| # | Item | FAQ answer | When | Notes |
+|---|------|------------|------|-------|
+| F1 | **Drones** — name the civil aviation authority and link its drone permit rules | `drones-aerial` | For the next AGM | `// TODO: [GIL CONTENT]` in `src/data/faq.ts` |
+| F2 | **Designatory letters** — replace FLGI / PLGI with the GIL designations (e.g. FGIL / PGIL) | `who-can-join` | For the next AGM | Update the constitution at the same time |
+| F3 | **Fee schedule** — publish amounts once the AGM approves them (Art. 7.3) | `fees` | For the next AGM | Also item 19 (Membership page) |
+| F4 | **Bursary and Professional Development Fund** — criteria and application dates | `bursaries` | When the Fund opens | |
+| F5 | **Public register** — link it if the Board agrees to publish the register of licensed surveyors (s. 8) | `check-licensed` | For the next AGM | Related to item 23 |
+| F6 | **Board terms of office** — confirm from a clean Gazette copy (the 2019 amendment copy on file is partly illegible) | `what-is-board` | Still open | The FAQ does not state terms |
+| F7 | **Standard-route examinations** — law and professional practice papers at 65% | `candidacy-length` | Still open | Revise the answer if the Board cannot yet set them |
+| F8 | **Sitemap domain** — `public/sitemap.xml` (incl. `/faq`) still uses `https://www.llsa.org.ls` | — | Still open | Change with item 1 |
+| F9 | **Review cycle** — re-read the FAQ after each Board decision and each AGM | all | Ongoing | |
 
 ---
 
