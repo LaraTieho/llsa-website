@@ -53,6 +53,23 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>
 
+// â”€â”€ Web3Forms â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// Messages are delivered to geomaticsinstitute.ls@gmail.com (the address the
+// access key was created with). The key is public by design â€” set it in Vercel
+// as NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY.
+
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit"
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? ""
+const FALLBACK_EMAIL = "geomaticsinstitute.ls@gmail.com"
+
+const SUBJECT_LABELS: Record<ContactFormData["subject"], string> = {
+  general: "General Enquiry",
+  membership: "Membership",
+  cpd: "CPD",
+  legislation: "Legislation",
+  media: "Media",
+}
+
 // ── Static data ────────────────────────────────────────────────
 
 const COMMITTEE = [
@@ -104,10 +121,12 @@ function Field({
 
 export function ContactContent() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const leftRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<HTMLDivElement>(null)
+  const botcheckRef = useRef<HTMLInputElement>(null)
 
   const leftInView = useInView(leftRef, { once: true, amount: 0.12 })
   const rightInView = useInView(rightRef, { once: true, amount: 0.08 })
@@ -121,9 +140,43 @@ export function ContactContent() {
   } = useForm<ContactFormData>({ resolver: zodResolver(contactSchema) })
 
   async function onSubmit(data: ContactFormData) {
-    await new Promise((resolve) => setTimeout(resolve, 1200))
-    console.log("Contact form submitted:", data)
-    setSubmitted(true)
+    setSubmitError(null)
+
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setSubmitError(
+        `The contact form is not available yet. Please email us at ${FALLBACK_EMAIL}.`,
+      )
+      return
+    }
+
+    try {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `GIL website: ${SUBJECT_LABELS[data.subject]} â€” ${data.name}`,
+          from_name: "GIL Website",
+          replyto: data.email,
+          name: data.name,
+          email: data.email,
+          organisation: data.organisation || "â€”",
+          topic: SUBJECT_LABELS[data.subject],
+          message: data.message,
+          botcheck: botcheckRef.current?.checked ?? false,
+        }),
+      })
+      const result = await res.json().catch(() => null)
+      if (!res.ok || !result?.success) {
+        throw new Error(result?.message ?? `HTTP ${res.status}`)
+      }
+      setSubmitted(true)
+      reset()
+    } catch {
+      setSubmitError(
+        `Sorry, your message could not be sent. Please try again, or email us at ${FALLBACK_EMAIL}.`,
+      )
+    }
   }
 
   const inputBase =
@@ -297,7 +350,7 @@ export function ContactContent() {
                         </p>
                       </div>
                       <button
-                        onClick={() => { setSubmitted(false); reset() }}
+                        onClick={() => { setSubmitted(false); setSubmitError(null); reset() }}
                         className="text-xs font-medium text-accent hover:text-accent/70 transition-colors"
                       >
                         Send another message →
@@ -327,6 +380,17 @@ export function ContactContent() {
                         noValidate
                         className="flex flex-col gap-5"
                       >
+                        {/* Spam honeypot â€” hidden from people, filled in by bots */}
+                        <input
+                          ref={botcheckRef}
+                          type="checkbox"
+                          name="botcheck"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          aria-hidden="true"
+                          className="hidden"
+                        />
+
                         {/* Name + Email */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                           <Field
@@ -436,6 +500,12 @@ export function ContactContent() {
                             )}
                           />
                         </Field>
+
+                        {submitError && (
+                          <p role="alert" className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+                            {submitError}
+                          </p>
+                        )}
 
                         {/* Submit */}
                         <div className="pt-1">
