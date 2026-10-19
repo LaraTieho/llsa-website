@@ -12,7 +12,6 @@ Open items map to `// TODO: [LLSA CONTENT]` / `// TODO: [GIL CONTENT]` comments 
 | 1 | **Production domain** — `BASE_URL` is still `https://www.llsa.org.ls` | `src/app/layout.tsx` | Used in all SEO metadata and JSON-LD; update once the GIL domain is confirmed |
 | 4 | **Social media profile URLs** — Facebook, X/Twitter (LinkedIn done) | `src/components/contact/ContactContent.tsx`, `src/components/layout/Footer.tsx`, `src/app/layout.tsx` (`sameAs`) | Currently `href="#"` on all platforms |
 | 4a | **Office hours** — confirm "Monday – Friday, 08:00 – 17:00 SAST" for the Chief Surveyor's Office | `src/components/contact/ContactContent.tsx` | Unverified |
-| 11 | **Contact form access key** — create a Web3Forms key with geomaticsinstitute.ls@gmail.com and set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in Vercel | Vercel → Settings → Environment Variables | Form is wired to Web3Forms; without the key it asks visitors to email instead |
 | 18 | **Committee member photos** (optional) | `src/components/about/Governance.tsx` | Cards show initials |
 | 19 | **Membership fees** — set by the AGM (Constitution Art. 7.3) | `src/components/membership/MembershipContent.tsx` | Cards say "Set by the AGM — ask the Secretary"; publish amounts only once approved |
 | 23 | **Public register** of licensed surveyors | `src/components/membership/MembershipContent.tsx` (`MEMBERS`) | Placeholder entries removed; notice shown until the Board licenses the 11 candidates (expected March 2027) |
@@ -53,6 +52,7 @@ Open items map to `// TODO: [LLSA CONTENT]` / `// TODO: [GIL CONTENT]` comments 
 | 39 | Street address in JSON-LD | Added |
 | 40 | Email in JSON-LD | geomaticsinstitute.ls@gmail.com, plus telephone |
 | 43 | `/services` page | Exists |
+| 11 | Contact form | Web3Forms; messages go to geomaticsinstitute.ls@gmail.com (access key in `ContactContent.tsx`) |
 | 4 (part) | LinkedIn | https://www.linkedin.com/company/geomatics-institute-of-lesotho/ — footer, Contact page and JSON-LD `sameAs` |
 
 ---
