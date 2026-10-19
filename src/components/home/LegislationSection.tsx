@@ -52,7 +52,7 @@ const LEGISLATION: Legislation[] = [
     id: "laa-act",
     title: "Land Administration Authority Act, 2010 (Act No. 9 of 2010)",
     description:
-      "Establishes the Land Administration Authority (LAA) as the institutional home for survey and land administration functions. The LAA now administers the national cadastre and oversees licensed surveyor functions.",
+      "Establishes the Land Administration Authority (LAA) as the body responsible for land administration, including the national cadastre and land registration. Licensing of land surveyors rests with the Land Surveyors' Board under the Land Survey Act 1980, not the LAA.",
     badge: "Institutional Framework",
     href: "/docs/laa-act-2010.pdf",
   },
@@ -114,9 +114,9 @@ export function LegislationSection() {
             className="text-lg text-white/80 leading-relaxed"
           >
             Professional land surveying in Lesotho is governed by a suite of legislation that
-            establishes the licensing regime, cadastral standards, and the institutional mandate
-            of the Chief Surveyor and Land Administration Authority. GIL members practise within
-            this framework.
+            establishes the licensing regime administered by the Land Surveyors&apos; Board,
+            cadastral standards, and the institutional mandate of the Chief Surveyor and Land
+            Administration Authority. GIL members practise within this framework.
           </motion.p>
         </motion.div>
 

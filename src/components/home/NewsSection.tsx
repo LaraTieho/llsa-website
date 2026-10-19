@@ -37,7 +37,7 @@ const NEWS: NewsCard[] = [
     date: "29 June 2026",
     headline: "New Licensing Intake Open: Applications for Professional Land Surveyor Registration",
     excerpt:
-      "The LAA has opened the 2026 intake for Professional Land Surveyor licence applications under the Land Survey Act 1980. Candidates must submit certified academic transcripts, field experience records, and two professional references.",
+      "The Land Surveyors' Board has opened the 2026 intake for Professional Land Surveyor licence applications under the Land Survey Act 1980. Candidates must submit certified academic transcripts, field experience records, and two professional references.",
   },
 ]
 

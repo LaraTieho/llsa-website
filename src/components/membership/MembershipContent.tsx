@@ -602,9 +602,9 @@ export function MembershipContent() {
             <AlertTriangle className="h-5 w-5 text-accent shrink-0 mt-0.5" aria-hidden="true" />
             <p className="text-sm text-white/70 leading-relaxed">
               Directory is for public reference only. Licence status should be verified with the{" "}
-              <span className="text-accent font-medium">Land Administration Authority</span>.
-              The GIL register is maintained on a best-efforts basis and may not reflect
-              real-time licensing changes.
+              <span className="text-accent font-medium">Land Surveyors&apos; Board</span>, which
+              licenses land surveyors under the Land Survey Act 1980. The GIL register is
+              maintained on a best-efforts basis and may not reflect real-time licensing changes.
             </p>
           </motion.div>
 
