@@ -1,6 +1,6 @@
 # GIL Website — Content Needed Before Go-Live
 
-Generated: 2026-06-29 · Updated: 2026-10-19 (FAQ page added)
+Generated: 2026-06-29 · Updated: 2026-10-19 (FAQ and Privacy Policy pages added)
 Open items map to `// TODO: [LLSA CONTENT]` / `// TODO: [GIL CONTENT]` comments in the source files listed below.
 
 ---
@@ -24,7 +24,6 @@ Open items map to `// TODO: [LLSA CONTENT]` / `// TODO: [GIL CONTENT]` comments 
 | 38 | **Impact statistics** — confirm "40+ years", "10 districts", "1 cadastre" | `src/components/home/ImpactSection.tsx` | |
 | 39a | **Postal code** in JSON-LD | `src/app/layout.tsx` | `streetAddress` added; no postal code yet |
 | 42 | `/news` page | — | Linked from NewsSection, navbar and footer; does not exist yet |
-| 44 | `/privacy-policy` page | — | Linked in footer; does not exist yet |
 
 ---
 
@@ -43,6 +42,18 @@ Content lives in `src/data/faq.ts` (copied from `GIL-Website-FAQ-Instructions.md
 | F7 | **Standard-route examinations** — law and professional practice papers at 65% | `candidacy-length` | Still open | Revise the answer if the Board cannot yet set them |
 | F8 | **Sitemap domain** — `public/sitemap.xml` (incl. `/faq`) still uses `https://www.llsa.org.ls` | — | Still open | Change with item 1 |
 | F9 | **Review cycle** — re-read the FAQ after each Board decision and each AGM | all | Ongoing | |
+
+---
+
+## PRIVACY POLICY PAGE (`/privacy-policy`, added 19 October 2026)
+
+Policy v1.0, adopted by the GIL Committee on 19 October 2026. Content lives in `src/data/privacy.ts` (copied from `GIL-Website-Privacy-Policy-Instructions.md`, Section 0). Update `PRIVACY_VERSION` and `PRIVACY_LAST_UPDATED` whenever the policy changes.
+
+| # | Item | Policy section | When | Notes |
+|---|------|----------------|------|-------|
+| P6 | **Baseline survey data** — move exports and evidence ZIPs to one restricted folder, turn on two-step verification, diary deletions (by 16 December 2027 at the latest), make the gender question optional and add the consent wording to the next survey | 5, 12, 13 | To action now | Steps in the instructions file, "P6" |
+| P8 | **Notification to the Data Protection Commission** (Act ss. 25(5) and 53) — file once the Commission is operating, and add its contact details to policy section 16 | 16 | Still open | Check the Commission's status each year |
+| P10 | **Sitemap domain** — `public/sitemap.xml` (incl. `/privacy-policy`) still uses `https://www.llsa.org.ls` | — | Still open | Change with item 1 |
 
 ---
 
@@ -72,6 +83,7 @@ Content lives in `src/data/faq.ts` (copied from `GIL-Website-FAQ-Instructions.md
 | 43 | `/services` page | Exists |
 | 11 | Contact form | Web3Forms; messages go to geomaticsinstitute.ls@gmail.com (access key in `ContactContent.tsx`) |
 | 4 (part) | LinkedIn | https://www.linkedin.com/company/geomatics-institute-of-lesotho/ — footer, Contact page and JSON-LD `sameAs` |
+| 44 | `/privacy-policy` page | Privacy Policy v1.0 (19 October 2026) published; notices on the contact form and Membership page; membership application form updated with the data protection consent |
 
 ---
 

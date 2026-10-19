@@ -63,3 +63,11 @@
     outline: none;
   }
 }
+
+/* Print: show content that is still waiting for its scroll-reveal animation */
+@media print {
+  .print-reveal [style*="opacity"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

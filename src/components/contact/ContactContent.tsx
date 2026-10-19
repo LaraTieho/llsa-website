@@ -12,6 +12,8 @@ import {
 } from "lucide-react"
 import { fadeInUp, staggerContainer, slideInRight } from "@/lib/animations"
 import { cn } from "@/lib/utils"
+import { RichText } from "@/components/faq/RichText"
+import { CONTACT_FORM_NOTICE } from "@/data/privacy"
 
 // ── Social icon SVGs (lucide-react has no brand icons) ─────────
 
@@ -536,6 +538,9 @@ export function ContactContent() {
                               </>
                             )}
                           </button>
+                          <p className="mt-3 text-xs text-muted-foreground">
+                            <RichText text={CONTACT_FORM_NOTICE} />
+                          </p>
                         </div>
                       </form>
                     </motion.div>

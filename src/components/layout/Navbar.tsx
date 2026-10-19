@@ -75,7 +75,7 @@ export function Navbar() {
   const closeMobileMenu = useCallback(() => setMobileOpen(false), [])
 
   return (
-    <header className="sticky top-0 z-40 w-full">
+    <header className="sticky top-0 z-40 w-full print:hidden">
       {/* ── Top Bar ─────────────────────────────────────── */}
       <div className="hidden md:block bg-primary text-primary-foreground py-1.5 text-xs">
         <div className="container flex items-center justify-between gap-4">

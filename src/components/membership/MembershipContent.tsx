@@ -4,11 +4,13 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import {
   BadgeCheck, Ruler, Globe, GraduationCap, BookOpen, Handshake, Hourglass, Medal, Award,
-  Search, Check, AlertTriangle, FileDown, FileText, MapPin,
+  Search, Check, AlertTriangle, FileDown, FileText, MapPin, ShieldCheck,
 } from "lucide-react"
 import { fadeInUp, staggerContainer, slideInLeft } from "@/lib/animations"
 import type { LucideIcon } from "lucide-react"
 import { CommonQuestions } from "@/components/faq/CommonQuestions"
+import { RichText } from "@/components/faq/RichText"
+import { MEMBERSHIP_NOTICE } from "@/data/privacy"
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -479,6 +481,19 @@ export function MembershipContent() {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+
+          {/* Privacy note */}
+          <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            animate={processInView ? "visible" : "hidden"}
+            className="mt-12 mx-auto flex max-w-3xl gap-3 rounded-lg border border-border bg-muted p-4 text-sm text-foreground/75 leading-relaxed"
+          >
+            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-secondary" aria-hidden="true" />
+            <p>
+              <RichText text={MEMBERSHIP_NOTICE} />
+            </p>
           </motion.div>
 
           {/* Download form CTA */}

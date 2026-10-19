@@ -48,7 +48,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer>
+    <footer className="print:hidden">
       {/* Gold accent divider */}
       <div className="h-1 bg-accent" />
 
